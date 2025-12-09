@@ -1,0 +1,353 @@
+/src/App.css
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+/src/App.tsx
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
+}
+
+export default App
+
+
+/src/assets/crystal.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4fc3f7"/>
+      <stop offset="1" stop-color="#0288d1"/>
+    </linearGradient>
+  </defs>
+  <polygon points="48,6 78,36 60,90 36,90 18,36" fill="url(#g)" stroke="#ffffff" stroke-width="2" />
+</svg>
+
+
+/src/assets/photo1.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff6f91"/>
+      <stop offset="1" stop-color="#ffc15e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg1)"/>
+  <circle cx="600" cy="120" r="80" fill="rgba(255,255,255,0.5)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 1</text>
+</svg>
+
+
+/src/assets/photo2.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#42e695"/>
+      <stop offset="1" stop-color="#3bb2b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg2)"/>
+  <rect x="80" y="120" width="280" height="200" rx="20" fill="rgba(255,255,255,0.5)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 2</text>
+</svg>
+
+
+/src/assets/photo3.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7f7fd5"/>
+      <stop offset="1" stop-color="#86a8e7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg3)"/>
+  <polygon points="100,450 200,250 300,450" fill="rgba(255,255,255,0.55)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 3</text>
+</svg>
+
+
+/src/assets/photo4.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg4" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4d03f"/>
+      <stop offset="1" stop-color="#16a085"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg4)"/>
+  <circle cx="200" cy="300" r="120" fill="rgba(255,255,255,0.45)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 4</text>
+</svg>
+
+
+/src/assets/photo5.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg5" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7971e"/>
+      <stop offset="1" stop-color="#ffd200"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg5)"/>
+  <rect x="480" y="150" width="240" height="180" rx="16" fill="rgba(255,255,255,0.5)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 5</text>
+</svg>
+
+
+/src/assets/photo6.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg6" x1="0" y1="1" x2="1" y2="1">
+      <stop offset="0" stop-color="#30cfd0"/>
+      <stop offset="1" stop-color="#330867"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg6)"/>
+  <polygon points="600,440 740,300 740,440" fill="rgba(255,255,255,0.5)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 6</text>
+</svg>
+
+
+/src/components/ui/PageHeader.tsx
+import { Typography } from 'antd'
+
+type Props = {
+    title: string
+    subtitle?: string
+}
+
+export default function PageHeader({ title, subtitle }: Props) {
+    return (
+        <div style={{ marginBottom: 16 }}>
+            <Typography.Title level={2} style={{ marginBottom: 4 }}>
+                {title}
+            </Typography.Title>
+            {subtitle && (
+                <Typography.Paragraph type="secondary" style={{ margin: 0 }}>
+                    {subtitle}
+                </Typography.Paragraph>
+            )}
+        </div>
+    )
+}
+
+
+/src/hooks/useGame.ts
+
+
+/src/index.css
+/* Глобальные стили — только базовая сетка/фон/шрифт */
+:root {
+  --page-max-w: 1200px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue',
+    Helvetica, Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+  background: #f5f5f5;
+}
+
+/* Контейнер контента */
+.app-container {
+  max-width: var(--page-max-w);
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Для блока PixiJS */
+.pixi-wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px dashed #d9d9d9;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.gallery-grid {
+  width: 100%;
+}
+
+/src/main.tsx
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.tsx'
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+
+/src/pages/Cards.tsx
+
+
+/src/pages/Forms.tsx
+
+
+/src/pages/Gallery.tsx
+
+
+/src/pages/Game.tsx
+
+
+/src/pages/Home.tsx
+
+
+/src/pages/UIShowcase.tsx
+
+
+/src/routes.tsx
+import { createBrowserRouter } from 'react-router-dom'
+import App from './App'
+import Home from './pages/Home'
+import Gallery from './pages/Gallery'
+import UIShowcase from './pages/UIShowcase'
+import Cards from './pages/Cards'
+import Forms from './pages/Forms'
+import Game from './pages/Game'
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <App />,
+        children: [
+            { index: true, element: <Home /> },
+            { path: 'gallery', element: <Gallery /> },
+            { path: 'ui', element: <UIShowcase /> },
+            { path: 'cards', element: <Cards /> },
+            { path: 'forms', element: <Forms /> },
+            { path: 'game', element: <Game /> }
+        ]
+    }
+])
+
+export default router
+
+
+package.json
+{
+  "name": "finiki",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.0.2",
+    "@ant-design/v5-patch-for-react-19": "^1.0.3",
+    "antd": "^5.27.4",
+    "pixi.js": "^8.13.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react-swc": "^4.1.0",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.44.1",
+    "vite": "^7.1.7"
+  }
+}
+
+
+vite.config.ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()]
+})
+

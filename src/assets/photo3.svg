@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7f7fd5"/>
+      <stop offset="1" stop-color="#86a8e7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg3)"/>
+  <polygon points="100,450 200,250 300,450" fill="rgba(255,255,255,0.55)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 3</text>
+</svg>
