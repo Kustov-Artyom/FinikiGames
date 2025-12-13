@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Fira Code", monospace;
+  background: #0B0D21;
+  color: white;
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  src: url('./assets/fonts/FiraCode/FiraCode-Light.woff2') format('woff2') url('FiraCode-Light.woff') format('woff');
+  font-weight: 1;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  src: url('./assets/fonts/FiraCode/FiraCode-Light.woff2') format('woff2') url('FiraCode-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  src: url('./assets/fonts/FiraCode/FiraCode-Regular.woff2') format('woff2') url('FiraCode-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  src: url('./assets/fonts/FiraCode/FiraCode-Medium.woff2') format('woff2') url('FiraCode-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  src: url('./assets/fonts/FiraCode/FiraCode-SemiBold.woff2') format('woff2') url('FiraCode-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  src: url('./assets/fonts/FiraCode/FiraCode-Bold.woff2') format('woff2') url('FiraCode-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TerminatorGen';
+  src: url('./assets/fonts/terminatorGen/terminatorgen.eot');
+  src: url('./assets/fonts/terminatorGen/terminatorgen.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/terminatorGen/terminatorgen.woff2') format('woff2'),
+    url('./assets/fonts/terminatorGen/terminatorgen.woff') format('woff'),
+    url('./assets/fonts/terminatorGen/terminatorgen.ttf') format('truetype'),
+    url('./assets/fonts/terminatorGen/terminatorgen.svg#terminatorgen') format('svg');
+}
