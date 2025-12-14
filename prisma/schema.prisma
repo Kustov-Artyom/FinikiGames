@@ -1,0 +1,103 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+enum ContentType {
+  HERO
+  FACTION
+  ENEMY
+  LOCATION
+  RESOURCE
+  ITEM
+  PATCH
+  STORY
+  GUIDE
+  MEDIA_ART
+  MEDIA_VIDEO
+  NEWS
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  username     String   @unique
+  passwordHash String
+  displayName  String
+  avatarUrl    String?
+  isBanned     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  roles        UserRole[]
+  contents     Content[]
+
+  @@map("users")
+}
+
+model Role {
+  id    Int      @id @default(autoincrement())
+  name  String   @unique
+  users UserRole[]
+
+  @@map("roles")
+}
+
+model UserRole {
+  userId String
+  roleId Int
+
+  user User @relation(fields: [userId], references: [id])
+  role Role @relation(fields: [roleId], references: [id])
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+model Content {
+  id            String        @id @default(uuid())
+  slug          String        @unique
+  type          ContentType
+  status        ContentStatus @default(DRAFT)
+  isOfficial    Boolean       @default(false)
+  meta          Json          @default("{}")
+  viewsCount    Int           @default(0)
+  likesCount    Int           @default(0)
+  commentsCount Int           @default(0)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  publishedAt   DateTime?
+
+  authorId      String
+  author        User          @relation(fields: [authorId], references: [id])
+
+  translations  ContentTranslation[]
+
+  @@map("content")
+}
+
+model ContentTranslation {
+  id               String @id @default(uuid())
+  contentId        String
+  languageCode     String
+  title            String
+  subtitle         String?
+  shortDescription String
+  body             String
+
+  content Content @relation(fields: [contentId], references: [id])
+
+  @@unique([contentId, languageCode])
+  @@map("content_translations")
+}
