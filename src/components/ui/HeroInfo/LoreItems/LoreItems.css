@@ -1,0 +1,37 @@
+.lore-items-wrapper {
+    padding: 20px;
+}
+
+.lore-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.lore-item .ant-image {
+    width: 404px;
+    height: 475px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lore-item .ant-image-img {
+    width: 100%;
+    min-width: 404px;
+    max-height: 475px;
+    object-fit: cover;
+    /* Обрезка углов */
+   clip-path: polygon(30% 0, 100% 1%, 100% 70%, 70% 100%, 0 100%, 0 30%);
+    border: 2px solid #4ade80; /* если хотите добавить контур, как на фото */
+    box-sizing: border-box;
+}
+
+.lore-item .ant-typography {
+    margin-top: 10px;
+    text-align: center;
+}

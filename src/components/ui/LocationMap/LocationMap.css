@@ -1,0 +1,162 @@
+.location-map-wrap {
+  width: 100%;
+  min-height: 720px;
+  padding: 40px 24px;
+  color: #fff;
+
+  background: radial-gradient(80% 90% at 50% 45%, rgba(92, 63, 255, 0.25) 0%, rgba(0, 0, 0, 0) 55%),
+    linear-gradient(135deg, #0d112c 0%, #1d2467 100%);
+}
+
+.location-map-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+
+  /* чтобы левая колонка могла "упасть" вниз, а правая не задавливала */
+  align-items: stretch;
+
+  gap: 56px;
+
+  /* фиксируем высоту под изображения (577px) */
+  min-height: 577px;
+}
+
+.location-map-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* КЛЮЧ: текст всегда внизу */
+  justify-content: flex-end;
+
+  /* чтобы не прилипало к самому низу */
+  padding-bottom: 18px;
+}
+
+
+.location-map-title {
+  margin: 0 0 6px 0 !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #bff6ff !important;
+  font-size: clamp(36px, 5vw, 64px) !important;
+}
+
+.location-map-sub {
+  margin-top: 4px;
+}
+
+.location-map-subline {
+  color: rgba(185, 246, 255, 0.95);
+  letter-spacing: 1px;
+  font-size: 14px;
+  text-transform: none;
+}
+
+.location-map-desc {
+  margin-top: 18px !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  max-width: 360px;
+}
+
+/* Правая часть (3 изображения) */
+.location-map-right {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Кнопка-карточка, чтобы не было layout shift */
+.location-map-card {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  display: block;
+
+  /* чтобы бордер не двигал размеры */
+  outline: none;
+}
+
+.location-map-card--main {
+  width: 315px;
+  height: 577px;
+}
+
+.location-map-card--side {
+  width: 224px;
+  height: 577px;
+}
+
+.location-map-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  user-select: none;
+}
+
+/* Бордер как на картинке — поверх, без влияния на размеры */
+.location-map-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 140ms ease;
+  border: 2px solid rgba(140, 246, 255, 0.95);
+  box-shadow: 0 0 18px rgba(140, 246, 255, 0.22);
+  pointer-events: none;
+}
+
+.location-map-card.is-selected::after {
+  opacity: 1;
+}
+
+/* Небольшой hover, но без “прыжков” */
+.location-map-card:hover::after {
+  opacity: 0.75;
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+  .location-map-inner {
+    grid-template-columns: 360px 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 992px) {
+  .location-map-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .location-map-desc {
+    max-width: 560px;
+  }
+
+  .location-map-right {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+}
+
+@media (max-width: 576px) {
+  .location-map-card--main {
+    width: 260px;
+    height: 520px;
+  }
+
+  .location-map-card--side {
+    width: 200px;
+    height: 520px;
+  }
+}

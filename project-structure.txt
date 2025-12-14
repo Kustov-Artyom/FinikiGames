@@ -1,0 +1,2841 @@
+/src/App.css
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+/src/App.tsx
+import { Layout, Menu, Typography } from 'antd'
+import { Outlet, NavLink, useLocation } from 'react-router-dom'
+import routes from './routes'
+
+const { Header, Content, Footer } = Layout
+
+const navItems = [
+  { key: '/', label: <NavLink to="/">Главная</NavLink> },
+  { key: '/gallery', label: <NavLink to="/gallery">Галерея</NavLink> },
+  { key: '/ui', label: <NavLink to="/ui">UI-компоненты</NavLink> },
+  { key: '/cards', label: <NavLink to="/cards">Карточки</NavLink> },
+  { key: '/forms', label: <NavLink to="/forms">Формы</NavLink> },
+  { key: '/game', label: <NavLink to="/game">Игра</NavLink> }
+]
+
+export default function App() {
+  const location = useLocation()
+  const selected = navItems.find((i) => location.pathname === i.key)?.key ?? ''
+
+  return (
+    <Layout style={{ minHeight: '100%' }}>
+      <Header
+        style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 16
+        }}
+      >
+        <Typography.Title level={4} style={{ color: '#fff', margin: 0 }}>
+          Finiki
+        </Typography.Title>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          selectedKeys={[selected]}
+          items={navItems}
+          style={{ flex: 1 }}
+        />
+      </Header>
+      <Content>
+        <div className="app-container">
+          {/* Роутер будет отрисовывать нужную страницу здесь */}
+          <Outlet />
+        </div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>
+        Demo App • React 19 + AntD 5 + PixiJS
+      </Footer>
+    </Layout>
+  )
+}
+
+export { routes }
+
+
+
+
+
+
+/src/assets/crystal.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4fc3f7"/>
+      <stop offset="1" stop-color="#0288d1"/>
+    </linearGradient>
+  </defs>
+  <polygon points="48,6 78,36 60,90 36,90 18,36" fill="url(#g)" stroke="#ffffff" stroke-width="2" />
+</svg>
+
+
+
+/src/assets/photo1.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff6f91"/>
+      <stop offset="1" stop-color="#ffc15e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg1)"/>
+  <circle cx="600" cy="120" r="80" fill="rgba(255,255,255,0.5)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 1</text>
+</svg>
+
+
+/src/assets/photo2.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#42e695"/>
+      <stop offset="1" stop-color="#3bb2b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg2)"/>
+  <rect x="80" y="120" width="280" height="200" rx="20" fill="rgba(255,255,255,0.5)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 2</text>
+</svg>
+
+
+/src/assets/photo3.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7f7fd5"/>
+      <stop offset="1" stop-color="#86a8e7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg3)"/>
+  <polygon points="100,450 200,250 300,450" fill="rgba(255,255,255,0.55)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 3</text>
+</svg>
+
+
+/src/assets/photo4.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg4" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4d03f"/>
+      <stop offset="1" stop-color="#16a085"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg4)"/>
+  <circle cx="200" cy="300" r="120" fill="rgba(255,255,255,0.45)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 4</text>
+</svg>
+
+
+/src/assets/photo5.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg5" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7971e"/>
+      <stop offset="1" stop-color="#ffd200"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg5)"/>
+  <rect x="480" y="150" width="240" height="180" rx="16" fill="rgba(255,255,255,0.5)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 5</text>
+</svg>
+
+
+/src/assets/photo6.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg6" x1="0" y1="1" x2="1" y2="1">
+      <stop offset="0" stop-color="#30cfd0"/>
+      <stop offset="1" stop-color="#330867"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg6)"/>
+  <polygon points="600,440 740,300 740,440" fill="rgba(255,255,255,0.5)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 6</text>
+</svg>
+
+
+
+
+/src/components/ui/Factions/Faction.css
+/* /src/components/ui/Factions/Faction.css */
+.factions-wrapper {
+  padding: 40px 24px;
+  min-height: auto;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.factions-container {
+  width: 100%;
+  max-width: 1400px; /* чуть шире, чтобы вместить 155×426 + отступ 100px */
+  margin: 0 auto;
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 32px;
+  color: #fff;
+}
+
+/* Заголовок */
+.page-title {
+  font-size: 64px !important;
+  font-weight: 800 !important;
+  color: #00f7ff !important;
+  margin: 0 0 24px 0 !important;
+  letter-spacing: 2px;
+}
+
+/* Основной layout */
+.content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Карточки */
+.factions-cards-row {
+  display: flex;
+  gap: 20px; /* отступ между карточками */
+  overflow-x: auto;
+  padding: 4px 0;
+  align-items: flex-start;
+  scrollbar-width: thin;
+  scrollbar-color: #00f7ff transparent;
+}
+
+
+
+
+
+.faction-card {
+  flex: 0 0 auto;
+  cursor: pointer;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+
+.faction-image {
+  object-fit: cover;
+  border-radius: 0;
+  width: 155px;
+  height: 426px;
+}
+
+/* Информация о фракции */
+.faction-info-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  border-radius: 16px;
+  max-width: auto;
+}
+
+.faction-name {
+  font-size: 48px !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  margin: 0 0 16px 0 !important;
+  line-height: 1.1;
+}
+
+.faction-description {
+  font-size: 20px !important;
+  color: #cccccc !important;
+  line-height: 1.5 !important;
+  margin: 0 0 24px 0 !important;
+  max-width: 255px;
+  word-wrap: break-word;
+}
+
+.read-button {
+  background-color: transparent;
+  border:1px solid #00e0e6;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 0 28px;
+  height: 44px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.read-button:hover {
+  background-color: #00e0e6;
+  border-color: #00e0e6;
+}
+
+/* Десктоп: карточки слева, панель — справа с отступом 100px */
+@media (min-width: 768px) {
+  .content-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 100px; /* ←←← ключевой отступ */
+  }
+
+  .faction-info-panel {
+    margin-top: 0;
+  }
+}
+
+/* Адаптивность модального окна */
+/* === Базовые стили остаются как есть === */
+
+/* Уменьшаем размеры на малых экранах */
+@media (max-width: 576px) {
+  .page-title {
+    font-size: 36px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .faction-name {
+    font-size: 36px !important; /* вместо 48px */
+  }
+
+  .faction-description {
+    font-size: 18px !important; /* вместо 20px */
+    max-width: 280px !important;
+  }
+
+  /* Уменьшаем карточку под экран */
+  .faction-image {
+    width: 130px !important;
+    height: 356px !important;
+  }
+
+  .faction-info-panel {
+    padding: 16px !important;
+    max-width: 280px !important;
+  }
+
+  .read-button {
+    height: 40px !important;
+    font-size: 15px !important;
+    padding: 0 20px !important;
+  }
+
+  .factions-container {
+    padding: 20px !important;
+  }
+}
+
+/* Очень узкие экраны: 320px – 414px */
+@media (max-width: 414px) {
+  .faction-image {
+    width: 120px !important;
+    height: 330px !important;
+  }
+
+  .faction-name {
+    font-size: 32px !important;
+  }
+
+  .faction-description {
+    font-size: 17px !important;
+    max-width: 250px !important;
+  }
+
+  .faction-info-panel {
+    max-width: 250px !important;
+    padding: 14px !important;
+  }
+
+  .page-title {
+    font-size: 32px !important;
+  }
+
+  /* Центрируем информацию на очень малых экранах */
+  .faction-info-panel {
+    align-items: center;
+    text-align: center;
+  }
+
+  .faction-description {
+    text-align: center !important;
+  }
+}
+
+/* Особый случай: 320px (iPhone SE, старые Android) */
+@media (max-width: 320px) {
+  .faction-image {
+    width: 110px !important;
+    height: 300px !important;
+  }
+
+  .faction-name {
+    font-size: 28px !important;
+  }
+
+  .faction-description {
+    font-size: 16px !important;
+    max-width: 220px !important;
+  }
+
+  .faction-info-panel {
+    max-width: 220px !important;
+    padding: 12px !important;
+  }
+
+  .page-title {
+    font-size: 28px !important;
+  }
+
+  .factions-container {
+    padding: 15px !important;
+  }
+
+  .read-button {
+    height: 38px !important;
+    font-size: 14px !important;
+    padding: 0 18px !important;
+  }
+}
+
+/src/components/ui/Factions/Factions.tsx
+import React, { useState } from 'react';
+import { Card, Image, Button, Modal, Typography } from 'antd';
+import './Faction.css';
+
+const { Title, Paragraph } = Typography;
+
+interface Faction {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  details: string;
+}
+
+const factions: Faction[] = [
+  {
+    id: 'arcane',
+    name: 'ARCANE LNC',
+    description: 'Крупнейшая фракция, занимающаяся добычей и защитой кристаллов.',
+    image: 'https://via.placeholder.com/155x426/1e1e30/ffffff?text=Arcane+LNC',
+    details: 'ARCANE LNC — это могущественная корпорация, контролирующая большую часть ресурсов планеты. Их технологии позволяют добывать редкие кристаллы, которые являются основой энергетики и технологий в этом мире. Фракция известна своей жесткой дисциплиной и высокотехнологичными боевыми подразделениями.',
+  },
+  {
+    id: 'shadow',
+    name: 'SHADOW VEIL',
+    description: 'Тайная организация, действующая в тени и контролирующая информацию.',
+    image: 'https://via.placeholder.com/155x426/1e1e30/ffffff?text=Shadow+Veil',
+    details: 'SHADOW VEIL — не просто шпионы, а архитекторы реальности. Они манипулируют данными, управляют слухами и устраняют угрозы до того, как они станут явными. Никто не знает их истинных целей, но все боятся их влияния.',
+  },
+  {
+    id: 'wildfire',
+    name: 'WILDFIRE COALITION',
+    description: 'Бунтарская группа, борющаяся за свободу и равенство всех рас.',
+    image: 'https://via.placeholder.com/155x426/1e1e30/ffffff?text=Wildfire+Coalition',
+    details: 'WILDFIRE COALITION — это объединение маргинализированных групп, восставших против корпоративного контроля. Они используют гуериллу, хакерские атаки и массовые протесты, чтобы вернуть власть народу. Их лозунг: «Свобода или смерть». Их методы спорны, но их цель — справедливость.',
+  },
+];
+
+const Factions: React.FC = () => {
+  const [selected, setSelected] = useState<Faction>(factions[0]);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  return (
+    <div className="factions-wrapper">
+      <div className="factions-container">
+        {/* Заголовок */}
+        <Title level={1} className="page-title">
+          ФРАКЦИИ
+        </Title>
+
+        {/* Основной layout */}
+        <div className="content-layout">
+          {/* Карточки */}
+          <div className="factions-cards-row">
+            {factions.map((faction) => (
+              <Card
+                key={faction.id}
+                className={`faction-card ${selected.id === faction.id ? 'selected' : ''}`}
+                bordered={false}
+                hoverable
+                onClick={() => setSelected(faction)}
+              >
+                <Image
+                  src={faction.image}
+                  alt={faction.name}
+                  width={155}
+                  height={426}
+                  preview={false}
+                  className="faction-image"
+                />
+              </Card>
+            ))}
+          </div>
+
+          {/* Информация о фракции */}
+          <div className="faction-info-panel">
+            <Title level={2} className="faction-name">
+              {selected.name}
+            </Title>
+            <Paragraph className="faction-description">{selected.description}</Paragraph>
+            <Button
+              type="primary"
+              size="large"
+              onClick={() => setModalVisible(true)}
+              className="read-button"
+            >
+              Читать
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Модальное окно */}
+      <Modal
+        title={<Title level={3} style={{ margin: 0 }}>{selected.name}</Title>}
+        open={modalVisible}
+        onCancel={() => setModalVisible(false)}
+        footer={[
+          <Button key="close" type="primary" onClick={() => setModalVisible(false)}>
+            Закрыть
+          </Button>,
+        ]}
+        width={600} // ← базовое значение для десктопа
+        centered
+        className="faction-modal"
+      >
+        <Paragraph>{selected.details}</Paragraph>
+      </Modal>
+    </div>
+  );
+};
+
+export default Factions;
+
+/src/components/ui/HeroInfo/HeroInfo.css
+/* Общие сбросы и базовые стили */
+.hero-info-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 40px 20px;
+  color: #ffffff;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Изображение героя — гибкий блок */
+.hero-image-frame {
+  flex: 0 0 420px; /* ~30% на десктопе */
+  max-width: 420px;
+  aspect-ratio: 420 / 483; /* сохраняем пропорции */
+}
+
+.hero-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px; /* опционально */
+}
+
+/* Контент справа */
+.hero-content {
+  flex: 1;
+  min-width: 0; /* позволяет сжиматься при нехватке места */
+  position: relative;
+}
+
+/* Имя героя */
+.hero-name-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.hero-name {
+  margin: 0;
+  color: #4dc7ff;
+  font-size: clamp(2rem, 6vw, 4rem); /* 32px–64px с плавным переходом */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Fira Code", monospace;
+  line-height: 1.1;
+}
+
+.hero-name-block img {
+  width: clamp(24px, 5vw, 32px);
+  height: auto;
+}
+
+/* Редкость */
+.hero-rarity-badge {
+  background: rgba(77, 199, 255, 0.1);
+  color: #4dc7ff;
+  font-family: "Fira Code", monospace;
+  padding: 4px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: clamp(0.75rem, 2.5vw, 0.875rem); /* 12px–14px */
+  font-weight: 300;
+  margin-top: 16px;
+}
+
+/* Описание */
+.hero-description {
+  font-family: "Fira Code", monospace;
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin-top: 16px;
+  font-weight: 300;
+  font-size: clamp(0.875rem, 3vw, 1rem); /* 14px–16px */
+  overflow-wrap: break-word;
+}
+
+/* Кнопка — адаптивное позиционирование */
+.hero-button {
+  margin-top: 24px;
+  height: auto;
+  padding: 10px 24px;
+  background: transparent;
+  border: 1px solid #4dc7ff;
+  font-family: "Fira Code", monospace;
+  color: #ffffff;
+  font-size: clamp(0.875rem, 2.8vw, 1rem);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-button:hover {
+  background: rgba(77, 199, 255, 0.1);
+  border-color: #6deaff;
+  color: #6deaff;
+}
+
+/* ===== Медиа-запросы ===== */
+
+/* Планшеты и мобильные */
+@media (max-width: 1024px) {
+  .hero-info-container {
+    gap: 32px;
+    padding: 32px 16px;
+  }
+
+  .hero-image-frame {
+    flex: 0 0 320px;
+    max-width: 320px;
+    aspect-ratio: 320 / 370;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-info-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 16px;
+  }
+
+  .hero-image-frame {
+    flex: none;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 320 / 370;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Кнопка — не абсолютная, чтобы не наезжала на текст */
+  .hero-button {
+    align-self: flex-start;
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: clamp(1.5rem, 8vw, 2.25rem); /* ~24px–36px */
+  }
+
+  .hero-name-block {
+    gap: 8px;
+  }
+
+  .hero-name-block img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-rarity-badge,
+  .hero-description {
+    font-size: clamp(0.75rem, 3vw, 0.875rem);
+  }
+
+  .hero-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+
+/src/components/ui/HeroInfo/HeroInfo.tsx
+import React from 'react';
+import { Flex, Image, Typography, Button } from 'antd';
+import './HeroInfo.css';
+
+interface HeroInfoProps {
+    image: string;
+    name: string;
+    typeImage: string;
+    rarity: string;
+    description: string;
+}
+
+const { Paragraph, Title } = Typography;
+
+const HeroInfo: React.FC<HeroInfoProps> = ({ image, name, typeImage, rarity, description }) => {
+    return (
+        <div className="hero-info-container">
+            <div className="hero-image-frame">
+                <Image src={image} alt={name} preview={false} />
+            </div>
+            <div className="hero-content">
+                <Flex className='hero-name-block' align="center" gap="small">
+                    <Title style={{ fontSize: '64px', marginBottom: '0' }} className="hero-name">
+                        {name}
+                    </Title>
+                    <Image src={typeImage} alt="тип" width={32} height={32} />
+                </Flex>
+                <Paragraph className="hero-rarity-badge">{rarity}</Paragraph>
+                <Paragraph className="hero-description">{description}</Paragraph>
+                <Button className="hero-button">Подробнее</Button>
+            </div>
+        </div>
+    );
+};
+
+export default HeroInfo;
+
+/src/components/ui/HeroInfo/LoreItems/LoreItems.css
+.lore-items-wrapper {
+    padding: 20px;
+}
+
+.lore-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.lore-item .ant-image {
+    width: 404px;
+    height: 475px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lore-item .ant-image-img {
+    width: 100%;
+    min-width: 404px;
+    max-height: 475px;
+    object-fit: cover;
+    /* Обрезка углов */
+   clip-path: polygon(30% 0, 100% 1%, 100% 70%, 70% 100%, 0 100%, 0 30%);
+    border: 2px solid #4ade80; /* если хотите добавить контур, как на фото */
+    box-sizing: border-box;
+}
+
+.lore-item .ant-typography {
+    margin-top: 10px;
+    text-align: center;
+}
+
+/src/components/ui/HeroInfo/LoreItems/LoreItems.tsx
+import React from 'react';
+import { Carousel, Image, Typography } from 'antd';
+import './LoreItems.css';
+
+interface LoreItem {
+    image: string;
+    title: string;
+}
+
+interface LoreItemsProps {
+    items: LoreItem[];
+
+}
+
+const {Title} = Typography;
+
+const LoreItems: React.FC<LoreItemsProps> = ({ items }) => {
+    return (
+    <div className='lore-items-wrapper'>
+        <Title level={2}>Предметы</Title>
+        <Carousel arrows style={{backgroundColor:'black', height:'400px'}}>
+            {items.map((item, index)=>(
+                <div key={index} className='lore-item'>
+                    <Image src={item.image} alt={item.title}/>
+                    <Title style={{color:'white'}}>{item.title}</Title>
+                </div>
+            ))}
+        </Carousel>
+    </div>
+    );
+}
+
+export default LoreItems;
+
+/src/components/ui/HeroTypeSwitcher/HeroTypeSwitcher.css
+.page-wrapper {
+  background: transparent;
+  min-height: auto;
+  width: 100%;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+/* Убираем ВСЕ отступы у Tabs */
+.page-wrapper .ant-tabs {
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper .ant-tabs-nav {
+  background: transparent !important;
+  margin: 0;
+  padding: 0 20px; /* отступы для центровки табов */
+  position: relative;
+}
+
+.page-wrapper .ant-tabs-nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  border-bottom: 2px solid #36818f;
+}
+
+.page-wrapper .ant-tabs-content-holder {
+  background: transparent !important;
+  padding: 0;
+}
+
+.page-wrapper .ant-tabs-content {
+  padding: 0; /* ← ключевой отступ, который часто остаётся */
+}
+
+/* Стили текста и кнопок — оставляем */
+.page-wrapper .ant-tabs-tab {
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
+  gap: 80px;
+  justify-content: space-between;
+}
+
+.page-wrapper .ant-tabs-tab-active {
+  color: #4dc7ff;
+  border-bottom: 2px solid #4dc7ff;
+}
+
+.page-wrapper .ant-tabs-tab:hover {
+  color: #6deaff;
+}
+
+.page-wrapper .ant-typography {
+  color: #ffffff;
+}
+
+.page-wrapper .ant-btn {
+  background: transparent;
+  border: 1px solid #4dc7ff;
+  color: #4dc7ff;
+  font-weight: bold;
+  padding: 8px 16px;
+}
+
+.page-wrapper .ant-btn:hover {
+  background: rgba(77, 199, 255, 0.1);
+  border-color: #6deaff;
+  color: #6deaff;
+}
+
+/src/components/ui/HeroTypeSwitcher/HeroTypeSwitcher.tsx
+import React from 'react';
+import { Tabs } from 'antd';
+import type { TabsProps } from 'antd';
+import './HeroTypeSwitcher.css';
+import HeroInfo from '../HeroInfo/HeroInfo';
+
+import Substract from '../../../assets/Subtract.png';
+import water from '../../../assets/water.png';
+
+
+const items: TabsProps['items'] = [
+  {
+    key: '1',
+    label: 'Все',
+    children: <HeroInfo image={Substract} name='Гирс' typeImage={water} rarity='Редкий герой' description='Гирс — девушка-инженер принадлежит к «Мусорщикам» — фракции голубого подразделения. Их город построен из обломков и старых механизмов, они известны своей выносливостью и умением выживать в суровых условиях. Для неё свобода и семья важнее всего, а мегакорпорации — лишь соперники, которых стоит обхитрить.'/>,
+  },
+  {
+    key: '2',
+    label: 'Редкий герой',
+    children: 'Content of Tab Pane 2',
+  },
+  {
+    key: '3',
+    label: 'Эпический герой',
+    children: 'Content of Tab Pane 3',
+  },
+  {
+    key: '4',
+    label: 'Легендарный герой',
+    children: 'Content of Tab Pane 4',
+  },
+];
+
+export default function HeroTypeSwitcher() {
+  return (
+    <div className='page-wrapper'>
+    <Tabs
+      defaultActiveKey="1"
+      centered
+      items={items}
+    />
+    </div>
+  );
+}
+
+/src/components/ui/ItemCarousel/ItemCarousel.css
+.items-carousel-wrap {
+  width: 100%;
+  height: 871px;
+  max-height: 871px;
+  padding: 56px 24px 40px;
+  color: #fff;
+  overflow: hidden;
+
+  background: radial-gradient(80% 80% at 50% 45%, rgba(92, 63, 255, 0.25) 0%, rgba(0, 0, 0, 0) 55%),
+    linear-gradient(135deg, #0d112c 0%, #1d2467 100%);
+}
+
+.items-carousel-inner {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.items-carousel-title {
+  margin: 0 0 26px 0 !important;
+  text-align: left;
+  font-weight: 900 !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #bff6ff !important;
+  font-size: clamp(32px, 5.4vw, 64px) !important;
+}
+
+.items-carousel-stage {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items-carousel-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 0;
+}
+
+/* Фиксируем высоту карусели (иначе slick может схлопнуться) */
+.items-carousel-shell {
+  height: var(--carousel-h);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* slick должен наследовать высоту shell */
+.items-carousel {
+  width: 100%;
+  height: 100%;
+}
+
+/* ВАЖНО: не даём react-slick делать странные вычисления высоты */
+.items-carousel .slick-slider,
+.items-carousel .slick-list,
+.items-carousel .slick-track {
+  height: 100% !important;
+}
+
+.items-carousel .slick-track {
+  display: flex !important;
+  align-items: center;
+}
+
+.items-carousel .slick-slide {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.items-carousel .slick-slide > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items-carousel-slide {
+  height: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+/* РАМКА */
+.items-carousel-frame {
+  --frame-w: 360px;
+  --frame-h: 460px;
+
+  position: relative;
+  width: var(--frame-w);
+  height: var(--frame-h);
+  user-select: none;
+  flex: 0 0 auto;
+
+  /* чтобы не было "пустого мерцания" */
+  background: rgba(6, 10, 30, 0.18);
+}
+
+/* лёгкий фейд только при замене src */
+.items-carousel-frame.is-loading .items-carousel-img {
+  opacity: 0.92;
+}
+
+.items-carousel-frame.is-loaded .items-carousel-img {
+  opacity: 1;
+}
+
+.items-carousel-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(18% 0%, 100% 0%, 100% 82%, 82% 100%, 0% 100%, 0% 18%);
+  border: 2px solid rgba(140, 246, 255, 0.95);
+  box-shadow: 0 0 18px rgba(140, 246, 255, 0.22);
+  pointer-events: none;
+}
+
+.items-carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* ключ: не даём браузеру дергать layout */
+  transform: translateZ(0);
+
+  clip-path: polygon(18% 0%, 100% 0%, 100% 82%, 82% 100%, 0% 100%, 0% 18%);
+  transition: opacity 120ms linear;
+}
+
+.items-carousel-caption {
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* стрелки */
+.items-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 !important;
+  height: auto !important;
+  width: auto !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.items-carousel-arrow-left {
+  left: clamp(12px, 6vw, 160px);
+}
+
+.items-carousel-arrow-right {
+  right: clamp(12px, 6vw, 160px);
+}
+
+.items-carousel-arrow-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid rgba(140, 246, 255, 0.9);
+  color: rgba(140, 246, 255, 0.95);
+  background: rgba(6, 10, 30, 0.25);
+  box-shadow: 0 0 18px rgba(140, 246, 255, 0.18);
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.items-carousel-arrow:hover .items-carousel-arrow-circle {
+  transform: scale(1.05);
+  background: rgba(6, 10, 30, 0.42);
+  box-shadow: 0 0 24px rgba(140, 246, 255, 0.26);
+}
+
+.items-carousel-empty {
+  width: 100%;
+  text-align: center;
+  opacity: 0.8;
+  padding: 28px 0;
+}
+
+@media (max-width: 576px) {
+  .items-carousel-arrow-left {
+    left: 10px;
+  }
+  .items-carousel-arrow-right {
+    right: 10px;
+  }
+  .items-carousel-arrow-circle {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+
+/src/components/ui/ItemCarousel/ItemCarousel.tsx
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { Carousel, Typography, Button, Grid } from 'antd'
+import type { CarouselRef } from 'antd/es/carousel'
+import { LeftOutlined, RightOutlined } from '@ant-design/icons'
+import './ItemCarousel.css'
+import fallbackImg from '../../../assets/photo6.svg'
+
+export type GameItem = {
+  id: string
+  title: string
+  image: string
+}
+
+type Props = {
+  items: GameItem[]
+  className?: string
+  heading?: string
+}
+
+type ResolvedItem = GameItem & {
+  resolvedSrc: string
+  isLoaded: boolean
+}
+
+function preloadImage(src: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    img.onload = () => resolve(src)
+    img.onerror = () => reject(new Error(`Failed to load: ${src}`))
+    img.src = src
+  })
+}
+
+export default function ItemsCarousel({ items, className, heading = 'ПРЕДМЕТЫ' }: Props) {
+  const carouselRef = useRef<CarouselRef>(null)
+  const [active, setActive] = useState(0)
+
+  const { useBreakpoint } = Grid
+  const screens = useBreakpoint()
+
+  const safeItems = useMemo(() => (Array.isArray(items) ? items : []), [items])
+
+  // Делаем “устойчивые” картинки: сначала fallback, затем подменяем на реальную, только когда она точно загрузилась
+  const [resolvedItems, setResolvedItems] = useState<ResolvedItem[]>(() =>
+    safeItems.map((it) => ({
+      ...it,
+      resolvedSrc: fallbackImg,
+      isLoaded: false,
+    })),
+  )
+
+  // Если items изменились — пересобираем список и прогружаем картинки
+  useEffect(() => {
+    let cancelled = false
+
+    const base: ResolvedItem[] = safeItems.map((it) => ({
+      ...it,
+      resolvedSrc: fallbackImg,
+      isLoaded: false,
+    }))
+
+    setResolvedItems(base)
+    setActive(0)
+
+    ;(async () => {
+      const next = await Promise.all(
+        safeItems.map(async (it) => {
+          try {
+            const okSrc = await preloadImage(it.image)
+            return { ...it, resolvedSrc: okSrc, isLoaded: true } as ResolvedItem
+          } catch (e) {
+            console.error('[ItemsCarousel] preload failed:', it.image, e)
+            return { ...it, resolvedSrc: fallbackImg, isLoaded: true } as ResolvedItem
+          }
+        }),
+      )
+
+      if (!cancelled) setResolvedItems(next)
+    })()
+
+    return () => {
+      cancelled = true
+    }
+  }, [safeItems])
+
+  const canRender = resolvedItems.length > 0
+  const current = resolvedItems[active]
+
+  const frameSize = useMemo(() => {
+    if (!screens.sm) return { w: 230, h: 300 }
+    if (!screens.md) return { w: 280, h: 360 }
+    if (!screens.lg) return { w: 320, h: 410 }
+    return { w: 360, h: 460 }
+  }, [screens.sm, screens.md, screens.lg])
+
+  return (
+    <section className={`items-carousel-wrap ${className ?? ''}`}>
+      <div className="items-carousel-inner">
+        <Typography.Title level={1} className="items-carousel-title">
+          {heading}
+        </Typography.Title>
+
+        <div className="items-carousel-stage">
+          <Button
+            type="text"
+            aria-label="Предыдущий предмет"
+            className="items-carousel-arrow items-carousel-arrow-left"
+            onClick={() => carouselRef.current?.prev()}
+          >
+            <span className="items-carousel-arrow-circle">
+              <LeftOutlined />
+            </span>
+          </Button>
+
+          <div
+            className="items-carousel-center"
+            style={
+              {
+                ['--carousel-h' as any]: `${frameSize.h}px`,
+              } as React.CSSProperties
+            }
+          >
+            {canRender ? (
+              <>
+                <div className="items-carousel-shell">
+                  <Carousel
+                    ref={carouselRef}
+                    dots={false}
+                    draggable
+                    speed={380}
+                    adaptiveHeight={false}
+                    className="items-carousel"
+                    // afterChange стабильнее для UI, чем beforeChange
+                    afterChange={(idx) => setActive(idx)}
+                  >
+                    {resolvedItems.map((it) => (
+                      <div key={it.id} className="items-carousel-slide">
+                        <div
+                          className={`items-carousel-frame ${it.isLoaded ? 'is-loaded' : 'is-loading'}`}
+                          style={
+                            {
+                              ['--frame-w' as any]: `${frameSize.w}px`,
+                              ['--frame-h' as any]: `${frameSize.h}px`,
+                            } as React.CSSProperties
+                          }
+                        >
+                          <img
+                            className="items-carousel-img"
+                            src={it.resolvedSrc}
+                            alt={it.title}
+                            loading="eager"
+                            decoding="async"
+                            draggable={false}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </Carousel>
+                </div>
+
+                <div className="items-carousel-caption" aria-live="polite">
+                  {current?.title ?? ''}
+                </div>
+              </>
+            ) : (
+              <div className="items-carousel-empty">Нет предметов для отображения</div>
+            )}
+          </div>
+
+          <Button
+            type="text"
+            aria-label="Следующий предмет"
+            className="items-carousel-arrow items-carousel-arrow-right"
+            onClick={() => carouselRef.current?.next()}
+          >
+            <span className="items-carousel-arrow-circle">
+              <RightOutlined />
+            </span>
+          </Button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+/src/components/ui/LocationInfo/LocationInfo.css
+
+
+/src/components/ui/LocationInfo/LocationInfo.tsx
+import { Flex, Image, Typography } from 'antd';
+
+const { Title, Paragraph } = Typography;
+
+interface LocationInfoProps {
+    locationType: string;
+    locationName: string;
+    description: string;
+}
+
+const LocationInfo: React.FC<LocationInfoProps> = ({ locationType, locationName, description }) => {
+    return (
+        <div className='map-info-wrapper'>
+            <Flex>
+                <div className='map-info-text-block'>
+                    <Title>{locationType}</Title>
+                    <Paragraph>{locationName}</Paragraph>
+                    <Paragraph>{description}</Paragraph>
+                </div>
+                <div className='map-info-image-block'>
+                    <Image></Image>
+                    <Image></Image>
+                    <Image></Image>
+                </div>
+            </Flex>
+        </div>
+    );
+}
+
+/src/components/ui/LocationMap/LocationMap.css
+.location-map-wrap {
+  width: 100%;
+  min-height: 720px;
+  padding: 40px 24px;
+  color: #fff;
+
+  background: radial-gradient(80% 90% at 50% 45%, rgba(92, 63, 255, 0.25) 0%, rgba(0, 0, 0, 0) 55%),
+    linear-gradient(135deg, #0d112c 0%, #1d2467 100%);
+}
+
+.location-map-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+
+  /* чтобы левая колонка могла "упасть" вниз, а правая не задавливала */
+  align-items: stretch;
+
+  gap: 56px;
+
+  /* фиксируем высоту под изображения (577px) */
+  min-height: 577px;
+}
+
+.location-map-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* КЛЮЧ: текст всегда внизу */
+  justify-content: flex-end;
+
+  /* чтобы не прилипало к самому низу */
+  padding-bottom: 18px;
+}
+
+
+.location-map-title {
+  margin: 0 0 6px 0 !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #bff6ff !important;
+  font-size: clamp(36px, 5vw, 64px) !important;
+}
+
+.location-map-sub {
+  margin-top: 4px;
+}
+
+.location-map-subline {
+  color: rgba(185, 246, 255, 0.95);
+  letter-spacing: 1px;
+  font-size: 14px;
+  text-transform: none;
+}
+
+.location-map-desc {
+  margin-top: 18px !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  max-width: 360px;
+}
+
+/* Правая часть (3 изображения) */
+.location-map-right {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Кнопка-карточка, чтобы не было layout shift */
+.location-map-card {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  display: block;
+
+  /* чтобы бордер не двигал размеры */
+  outline: none;
+}
+
+.location-map-card--main {
+  width: 315px;
+  height: 577px;
+}
+
+.location-map-card--side {
+  width: 224px;
+  height: 577px;
+}
+
+.location-map-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  user-select: none;
+}
+
+/* Бордер как на картинке — поверх, без влияния на размеры */
+.location-map-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 140ms ease;
+  border: 2px solid rgba(140, 246, 255, 0.95);
+  box-shadow: 0 0 18px rgba(140, 246, 255, 0.22);
+  pointer-events: none;
+}
+
+.location-map-card.is-selected::after {
+  opacity: 1;
+}
+
+/* Небольшой hover, но без “прыжков” */
+.location-map-card:hover::after {
+  opacity: 0.75;
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+  .location-map-inner {
+    grid-template-columns: 360px 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 992px) {
+  .location-map-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .location-map-desc {
+    max-width: 560px;
+  }
+
+  .location-map-right {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+}
+
+@media (max-width: 576px) {
+  .location-map-card--main {
+    width: 260px;
+    height: 520px;
+  }
+
+  .location-map-card--side {
+    width: 200px;
+    height: 520px;
+  }
+}
+
+
+/src/components/ui/LocationMap/LocationMap.tsx
+import React, { useMemo, useState } from 'react'
+import { Typography } from 'antd'
+import './LocationMap.css'
+
+// Чтобы сразу работало в твоём проекте без внешних ссылок:
+import photo1 from '../../../assets/photo1.svg'
+import photo2 from '../../../assets/photo2.svg'
+import photo3 from '../../../assets/photo1.svg'
+
+export type LocationCard = {
+  id: string
+  image: string
+  locationTitle: string // то, что будет под "КАРТА"
+  locationSubtitle: string // строка типа "Склад ARCANE LNC"
+  description: string
+  size: 'main' | 'side' // main = 315x577, side = 224x577
+}
+
+type Props = {
+  cards?: LocationCard[]
+  title?: string // "КАРТА"
+}
+
+export default function LocationMap({
+  title = 'КАРТА',
+  cards,
+}: Props) {
+  const data: LocationCard[] = useMemo(
+    () =>
+      cards?.length
+        ? cards
+        : [
+            {
+              id: 'arcane_warehouse',
+              image: photo1,
+              locationTitle: 'Склад ARCANE LNC',
+              locationSubtitle: 'Склад ARCANE LNC',
+              description:
+                'Стратегически важный объект\nв мире игры Arcane Crystals.',
+              size: 'main',
+            },
+            {
+              id: 'labyrinth',
+              image: photo2,
+              locationTitle: 'Лабиринт механиков',
+              locationSubtitle: 'Зона BLUE SECTOR',
+              description:
+                'Запутанный комплекс переходов и цехов.\nОпасен ловушками и дронами.',
+              size: 'side',
+            },
+            {
+              id: 'crimson_rift',
+              image: photo3,
+              locationTitle: 'Кровавый разлом',
+              locationSubtitle: 'Территория RED FRONT',
+              description:
+                'Расколотая земля и агрессивная фауна.\nВысокий риск, высокий трофей.',
+              size: 'side',
+            },
+          ],
+    [cards],
+  )
+
+  const [selectedId, setSelectedId] = useState<string>(data[0]?.id ?? '')
+  const selected = useMemo(() => data.find((x) => x.id === selectedId) ?? data[0], [data, selectedId])
+
+  return (
+    <section className="location-map-wrap">
+      <div className="location-map-inner">
+        <div className="location-map-left">
+          <Typography.Title level={1} className="location-map-title">
+            {title}
+          </Typography.Title>
+
+          <div className="location-map-sub">
+            <div className="location-map-subline">{selected?.locationSubtitle ?? ''}</div>
+          </div>
+
+          <Typography.Paragraph className="location-map-desc">
+            {(selected?.description ?? '').split('\n').map((line, i) => (
+              <React.Fragment key={i}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </Typography.Paragraph>
+        </div>
+
+        <div className="location-map-right" role="list">
+          {data.map((card) => {
+            const isSelected = card.id === selectedId
+            const cls =
+              card.size === 'main'
+                ? 'location-map-card location-map-card--main'
+                : 'location-map-card location-map-card--side'
+
+            return (
+              <button
+                key={card.id}
+                type="button"
+                role="listitem"
+                className={`${cls} ${isSelected ? 'is-selected' : ''}`}
+                onClick={() => setSelectedId(card.id)}
+                aria-label={`Выбрать локацию: ${card.locationTitle}`}
+              >
+                <img className="location-map-img" src={card.image} alt={card.locationTitle} />
+              </button>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+/src/components/ui/PageHeader.tsx
+import { Typography } from 'antd'
+
+type Props = {
+    title: string
+    subtitle?: string
+}
+
+export default function PageHeader({ title, subtitle }: Props) {
+    return (
+        <div style={{ marginBottom: 16 }}>
+            <Typography.Title level={2} style={{ marginBottom: 4 }}>
+                {title}
+            </Typography.Title>
+            {subtitle && (
+                <Typography.Paragraph type="secondary" style={{ margin: 0 }}>
+                    {subtitle}
+                </Typography.Paragraph>
+            )}
+        </div>
+    )
+}
+
+
+/src/components/ui/WorldHistory/WorldHistory.css
+/* /src/components/ui/WorldHistory/WorldHistory.css */
+.world-history-container {
+  background: transparent;
+  padding: 40px 20px;
+  min-height: auto;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+
+.world-history-title {
+  text-align: center;
+  font-size: 2.5rem !important;
+  font-weight: bold !important;
+  color: #00f3ff !important;
+  text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+  margin-bottom: 40px !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Карточка: 542 × 604 */
+.world-history-card {
+  width: 542px;
+  height: 604px;
+  background: rgba(20, 20, 40, 0.7) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.world-history-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 243, 255, 0.2);
+}
+
+/* Изображение: 542 × 320 */
+.world-history-card-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-bottom: 2px solid #00f3ff;
+}
+
+/* Заголовок: 32px */
+.world-history-card-title {
+  font-size: 32px !important;
+  line-height: 1.2 !important;
+  color: #FFFFFF !important;
+  margin: 0 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Текстовый блок: 498 × 130 */
+.world-history-description-box {
+  width: 498px;
+  height: 130px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Текст: 16px */
+.world-history-description {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  color: #FFFFFF !important;
+  margin: 0 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+/* Кнопка */
+.world-history-read-more-button {
+  background: transparent !important;
+  border: 2px solid #00f3ff !important;
+  color: #FFFFFF!important;
+  font-weight: bold !important;
+  border-radius: 6px !important;
+  padding: 8px 20px !important;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  width: fit-content;
+}
+
+.world-history-read-more-button:hover {
+  background: #00f3ff !important;
+  color: #0d001a !important;
+  box-shadow: 0 0 15px #00f3ff;
+}
+
+/* Modal */
+.world-history-modal .ant-modal-content {
+  background: rgba(20, 20, 40, 0.9);
+  border: 1px solid #00f3ff;
+}
+
+.world-history-modal .ant-modal-header {
+  background: rgba(0, 243, 255, 0.1);
+  border-bottom: 1px solid #00f3ff;
+}
+
+.world-history-modal-title {
+  color: #00f3ff !important;
+  margin: 0 !important;
+  text-shadow: 0 0 5px #00f3ff;
+}
+
+.world-history-modal .ant-modal-body {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.world-history-modal .ant-modal-body h3 {
+  color: #00f3ff;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.world-history-modal .ant-modal-footer .ant-btn-primary {
+  background: #00f3ff !important;
+  border-color: #00f3ff !important;
+  color: #0d001a !important;
+  font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .world-history-card {
+    width: 100% !important;
+    max-width: 542px;
+    height: auto;
+  }
+
+  .world-history-card-image {
+    height: 320px;
+  }
+
+  .world-history-description-box {
+    width: 100%;
+    max-width: 498px;
+    height: auto;
+    min-height: 130px;
+  }
+
+  .world-history-card .ant-card-body {
+    height: auto !important;
+  }
+}
+
+/src/components/ui/WorldHistory/WorldHistory.tsx
+import React, { useState } from 'react';
+import {
+  Modal,
+  Button,
+  Typography,
+  Card,
+  Space,
+  Row,
+  Col,
+} from 'antd';
+import './WorldHistory.css';
+
+const { Title, Paragraph } = Typography;
+
+interface CardData {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  modalContent: string;
+}
+
+const WorldHistory: React.FC = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [currentModalContent, setCurrentModalContent] = useState<string>('');
+  const [currentTitle, setCurrentTitle] = useState<string>('');
+
+  const cards: CardData[] = [
+    {
+      id: 1,
+      title: 'История подразделения',
+      description:
+        'Подразделение — это элитный отряд, сформированный для выполнения особо сложных и опасных заданий в мире Arcene Crystal.',
+      image: 'https://via.placeholder.com/542x320?text=Group+Image+1',
+      modalContent: `
+        <h3>История подразделения</h3>
+        <p>Подразделение было создано в начале 2077 года по указу Верховного Совета Арсен Кристалл. Его задачей стало выполнение миссий, недоступных для обычных военных подразделений.</p>
+        <p>Состав отряда формировался из лучших специалистов со всего мира: бывших спецназовцев, хакеров, биоинженеров и тактиков. Их тренировки проходили в условиях, приближенных к реальным боевым действиям.</p>
+        <p>Первое задание подразделения — захват артефакта «Ключ Астрала» — закончилось успешно, несмотря на потери. С тех пор отряд стал легендой в мире Arcene Crystal.</p>
+      `,
+    },
+    {
+      id: 2,
+      title: 'Создание мира',
+      description:
+        'Разработка игры «Arcene Crystal» началась в начале 0000 года командой талантливых разработчиков, дизайнеров и сценаристов, вдохновленных классическими RPG и научной фантастикой.',
+      image: 'https://via.placeholder.com/542x320?text=Group+Image+2',
+      modalContent: `
+        <h3>Создание мира</h3>
+        <p>Проект «Arcene Crystal» зародился в маленькой студии в Токио в 2020 году. Первоначально это была инди-игра, но после успеха демоверсии она привлекла внимание крупных издателей.</p>
+        <p>Команда разработчиков, состоящая из 15 человек, работала над миром более 5 лет. Они создали уникальную вселенную, сочетающую элементы киберпанка, магии и высоких технологий.</p>
+        <p>Игра была выпущена в 2025 году и сразу стала хитом, получив награды за сюжет, графику и геймплей. Сегодня «Arcene Crystal» — одна из самых популярных игр в жанре RPG.</p>
+      `,
+    },
+  ];
+
+  const showModal = (content: string, title: string) => {
+    setCurrentModalContent(content);
+    setCurrentTitle(title);
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => setIsModalVisible(false);
+  const handleCancel = () => setIsModalVisible(false);
+
+  return (
+    <div className="world-history-container">
+      <Title level={1} className="world-history-title">
+        ИСТОРИЯ МИРА
+      </Title>
+
+      <Row gutter={[34, 34]} justify="center">
+        {cards.map((card) => (
+          <Col key={card.id}>
+            <Card
+              cover={
+                <img
+                  alt={card.title}
+                  src={card.image}
+                  className="world-history-card-image"
+                />
+              }
+              bodyStyle={{ padding: '24px', height: '284px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+              className="world-history-card"
+            >
+              <Space direction="vertical" size={16} style={{ width: '100%' }}>
+                <Title level={2} className="world-history-card-title">
+                  {card.title}
+                </Title>
+                <div className="world-history-description-box">
+                  <Paragraph className="world-history-description">
+                    {card.description}
+                  </Paragraph>
+                </div>
+                <Button
+                  type="primary"
+                  className="world-history-read-more-button"
+                  onClick={() => showModal(card.modalContent, card.title)}
+                >
+                  Читать дальше
+                </Button>
+              </Space>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+
+      <Modal
+        title={<Title level={3} className="world-history-modal-title">{currentTitle}</Title>}
+        open={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        width={800}
+        bodyStyle={{ maxHeight: '60vh', overflowY: 'auto' }}
+        centered
+        className="world-history-modal"
+      >
+        <div dangerouslySetInnerHTML={{ __html: currentModalContent }} />
+      </Modal>
+    </div>
+  );
+};
+
+export default WorldHistory;
+
+/src/hooks/useGame.ts
+import { useCallback, useMemo, useRef, useState } from 'react'
+
+export type Award = 'none' | 'bronze' | 'silver' | 'gold'
+
+/**
+ * Логика игры вынесена в хук — UI (PixiJS-слой) лишь вызывает методы этого хука.
+ * Так проще тестировать и переиспользовать.
+ */
+export function useGame(totalCrystals = 15) {
+    const [collected, setCollected] = useState(0)
+    const [award, setAward] = useState<Award>('none')
+    const grantedRef = useRef<Set<Award>>(new Set()) // чтобы не показывать награду повторно
+
+    const thresholds: Record<Award, number> = useMemo(
+        () => ({
+            none: 0,
+            bronze: 5,
+            silver: 10,
+            gold: 15
+        }),
+        []
+    )
+
+    const onCrystalPick = useCallback(() => {
+        setCollected((prev) => {
+            const next = prev + 1
+
+            // Выдать награду, если перешагнули порог и ещё не выдавали
+            if (next >= thresholds.gold && !grantedRef.current.has('gold')) {
+                setAward('gold')
+                grantedRef.current.add('gold')
+            } else if (next >= thresholds.silver && !grantedRef.current.has('silver')) {
+                setAward('silver')
+                grantedRef.current.add('silver')
+            } else if (next >= thresholds.bronze && !grantedRef.current.has('bronze')) {
+                setAward('bronze')
+                grantedRef.current.add('bronze')
+            }
+
+            return next
+        })
+    }, [thresholds])
+
+    const reset = useCallback(() => {
+        setCollected(0)
+        setAward('none')
+        grantedRef.current.clear()
+    }, [])
+
+    const remaining = useMemo(() => Math.max(totalCrystals - collected, 0), [totalCrystals, collected])
+
+    return {
+        collected,
+        remaining,
+        award,
+        onCrystalPick,
+        reset,
+        thresholds
+    }
+}
+
+
+/src/index.css
+/* Глобальные стили — только базовая сетка/фон/шрифт */
+:root {
+  --page-max-w: 1200px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue',
+    Helvetica, Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+  background: #f5f5f5;
+}
+
+/* Контейнер контента */
+.app-container {
+  margin: 0 auto;
+}
+
+/* Для блока PixiJS */
+.pixi-wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px dashed #d9d9d9;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.gallery-grid {
+  width: 100%;
+}
+
+/src/main.tsx
+import '@ant-design/v5-patch-for-react-19';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { ConfigProvider, theme } from 'antd'
+import 'antd/dist/reset.css'
+import './index.css'
+import { RouterProvider } from 'react-router-dom'
+import router from './routes'
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <ConfigProvider
+      theme={{
+        algorithm: theme.defaultAlgorithm
+      }}
+    >
+      <RouterProvider router={router} />
+    </ConfigProvider>
+  </StrictMode>
+)
+
+
+/src/pages/Cards.tsx
+import { Card, Row, Col, Button } from 'antd'
+import PageHeader from '../components/ui/PageHeader'
+import photo1 from '../assets/photo1.svg'
+import photo2 from '../assets/photo2.svg'
+import photo3 from '../assets/photo3.svg'
+import photo4 from '../assets/photo4.svg'
+import photo5 from '../assets/photo5.svg'
+import photo6 from '../assets/photo6.svg'
+
+const items = [
+    { img: photo1, title: 'Карта #1', desc: 'Краткое описание 1' },
+    { img: photo2, title: 'Карта #2', desc: 'Краткое описание 2' },
+    { img: photo3, title: 'Карта #3', desc: 'Краткое описание 3' },
+    { img: photo4, title: 'Карта #4', desc: 'Краткое описание 4' },
+    { img: photo5, title: 'Карта #5', desc: 'Краткое описание 5' },
+    { img: photo6, title: 'Карта #6', desc: 'Краткое описание 6' }
+]
+
+export default function Cards() {
+    return (
+        <>
+            <PageHeader title="Карточки" subtitle="Сетка: 3 в ряд на десктопе, 1 — на мобильном." />
+            <Row gutter={[16, 16]}>
+                {items.map((it, idx) => (
+                    <Col key={idx} xs={24} sm={12} md={8}>
+                        <Card
+                            hoverable
+                            cover={<img src={it.img} alt={it.title} />}
+                            actions={[
+                                <Button type="link" key="more">
+                                    Подробнее
+                                </Button>
+                            ]}
+                        >
+                            <Card.Meta title={it.title} description={it.desc} />
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+        </>
+    )
+}
+
+
+/src/pages/Forms.tsx
+import { Button, Checkbox, DatePicker, Form, Input, message } from 'antd'
+import PageHeader from '../components/ui/PageHeader'
+
+type FormValues = {
+    name: string
+    email: string
+    birthday?: string
+    agree: boolean
+}
+
+export default function Forms() {
+    const [form] = Form.useForm<FormValues>()
+
+    const onFinish = (values: FormValues) => {
+        // В реальном проекте — отправка данных на сервер
+        message.success(`Успешно! Имя: ${values.name}, Email: ${values.email}`)
+        form.resetFields()
+    }
+
+    return (
+        <>
+            <PageHeader title="Формы" subtitle="Валидация, обязательные поля и DatePicker." />
+
+            <Form
+                form={form}
+                layout="vertical"
+                style={{ maxWidth: 520 }}
+                onFinish={onFinish}
+                initialValues={{ agree: false }}
+            >
+                <Form.Item
+                    label="Имя"
+                    name="name"
+                    rules={[
+                        { required: true, message: 'Введите имя' },
+                        { min: 2, message: 'Минимум 2 символа' }
+                    ]}
+                >
+                    <Input placeholder="Иван Иванов" />
+                </Form.Item>
+
+                <Form.Item
+                    label="Email"
+                    name="email"
+                    rules={[
+                        { required: true, message: 'Введите email' },
+                        { type: 'email', message: 'Некорректный email' }
+                    ]}
+                >
+                    <Input placeholder="example@mail.com" />
+                </Form.Item>
+
+                <Form.Item label="Дата рождения" name="birthday">
+                    <DatePicker style={{ width: '100%' }} />
+                </Form.Item>
+
+                <Form.Item
+                    name="agree"
+                    valuePropName="checked"
+                    rules={[
+                        {
+                            validator: (_, value) =>
+                                value ? Promise.resolve() : Promise.reject(new Error('Нужно согласие с условиями'))
+                        }
+                    ]}
+                >
+                    <Checkbox>Согласен с условиями</Checkbox>
+                </Form.Item>
+
+                <Form.Item>
+                    <Button type="primary" htmlType="submit">
+                        Отправить
+                    </Button>
+                </Form.Item>
+            </Form>
+        </>
+    )
+}
+
+
+/src/pages/Gallery.tsx
+import { Tabs, Row, Col, Card, Typography } from 'antd'
+import PageHeader from '../components/ui/PageHeader'
+import photo1 from '../assets/photo1.svg'
+import photo2 from '../assets/photo2.svg'
+import photo3 from '../assets/photo3.svg'
+import photo4 from '../assets/photo4.svg'
+import photo5 from '../assets/photo5.svg'
+import photo6 from '../assets/photo6.svg'
+
+const photos = [photo1, photo2, photo3, photo4, photo5, photo6]
+
+export default function Gallery() {
+    return (
+        <>
+            <PageHeader title="Галерея" subtitle="Две вкладки: Фото и Видео." />
+
+            <Tabs
+                defaultActiveKey="photos"
+                items={[
+                    {
+                        key: 'photos',
+                        label: 'Фото',
+                        children: (
+                            <Row gutter={[16, 16]} className="gallery-grid">
+                                {photos.map((src, idx) => (
+                                    <Col key={idx} xs={24} sm={12} md={8}>
+                                        <Card hoverable cover={<img src={src} alt={`Фото ${idx + 1}`} />}>
+                                            <Card.Meta title={`Фото #${idx + 1}`} description="Пример SVG-изображения" />
+                                        </Card>
+                                    </Col>
+                                ))}
+                            </Row>
+                        )
+                    },
+                    {
+                        key: 'videos',
+                        label: 'Видео',
+                        children: (
+                            <Row gutter={[16, 16]}>
+                                <Col xs={24} md={12}>
+                                    <Card
+                                        hoverable
+                                        cover={
+                                            <video
+                                                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                                                controls
+                                                preload="metadata"
+                                                style={{ width: '100%', display: 'block' }}
+                                            />
+                                        }
+                                    >
+                                        <Card.Meta title="Видео #1" description="CC0 пример с MDN" />
+                                    </Card>
+                                </Col>
+                                <Col xs={24} md={12}>
+                                    <Card
+                                        hoverable
+                                        cover={
+                                            <video
+                                                src="https://media.w3.org/2010/05/sintel/trailer.mp4"
+                                                controls
+                                                preload="metadata"
+                                                style={{ width: '100%', display: 'block' }}
+                                            />
+                                        }
+                                    >
+                                        <Card.Meta title="Видео #2" description="Трейлер Sintel (тестовый ролик)" />
+                                    </Card>
+                                </Col>
+                            </Row>
+                        )
+                    }
+                ]}
+            />
+
+            <Typography.Paragraph type="secondary" style={{ marginTop: 8 }}>
+                Изображения — локальные SVG-файлы; видео — открытые тестовые ролики.
+            </Typography.Paragraph>
+        </>
+    )
+}
+
+
+/src/pages/Game.tsx
+import { useEffect, useRef, useState } from 'react'
+import { Button, Descriptions, notification, Space, Typography, Segmented } from 'antd'
+import PageHeader from '../components/ui/PageHeader'
+import { useGame } from '../hooks/useGame'
+
+// PixiJS v8
+import { Application, Sprite, Texture, Container, Assets } from 'pixi.js'
+import crystalUrl from '../assets/crystal.svg' // можно оставить без ?url — см. комментарий ниже
+
+type Mode = 'easy' | 'normal' | 'hard'
+
+export default function Game() {
+  const wrapRef = useRef<HTMLDivElement>(null)
+  const appRef = useRef<Application | null>(null)
+  const [mode, setMode] = useState<Mode>('normal')
+
+  // Количество кристаллов — от режима
+  const total = mode === 'easy' ? 10 : mode === 'hard' ? 20 : 15
+  const { collected, remaining, award, onCrystalPick, reset, thresholds } = useGame(total)
+
+  // Награды
+  useEffect(() => {
+    if (award === 'bronze') {
+      notification.success({ message: 'Бронзовая награда', description: 'Собрано 5 кристаллов!' })
+    } else if (award === 'silver') {
+      notification.success({ message: 'Серебряная награда', description: 'Собрано 10 кристаллов!' })
+    } else if (award === 'gold') {
+      notification.success({ message: 'Золотая награда', description: 'Собрано все кристаллы!' })
+    }
+  }, [award])
+
+  /**
+   * Pixi инициализация с защитой от StrictMode (двойной mount/unmount):
+   * - ждём app.init()
+   * - ждём Texture через Assets.load() (корректно работает и с data: и с file URL)
+   */
+  useEffect(() => {
+    const mount = wrapRef.current
+    if (!mount) return
+
+    let disposed = false
+
+    // Сносим предыдущий инстанс, если был
+    if (appRef.current) {
+      try {
+        appRef.current.destroy(true)
+      } catch {
+        // no-op
+      } finally {
+        appRef.current = null
+      }
+    }
+
+    const app = new Application()
+    appRef.current = app
+
+    ;(async () => {
+      const width = Math.min(mount.clientWidth, 900)
+      const height = 520
+
+      try {
+        await app.init({ width, height, background: '#0b1426', antialias: true })
+      } catch (e) {
+        appRef.current = null
+        console.error('Pixi Application.init() failed:', e)
+        return
+      }
+
+      if (disposed) {
+        try {
+          app.destroy(true)
+        } catch {
+          // no-op
+        } finally {
+          if (appRef.current === app) appRef.current = null
+        }
+        return
+      }
+
+      // Монтируем canvas
+      mount.appendChild(app.canvas as unknown as Node)
+
+      // --- ГРУЗИМ ТЕКСТУРУ ЧЕРЕЗ Assets.load ---
+      // Это избавляет от ворнинга "Assets ... was not found in the Cache"
+      // и корректно работает с data: URL, который Vite может инлайнить.
+      let tex: Texture
+      try {
+        tex = (await Assets.load(crystalUrl)) as Texture
+      } catch (e) {
+        console.error('Failed to load crystal texture via Assets.load:', e)
+        return
+      }
+
+      if (disposed) {
+        try {
+          app.destroy(true)
+        } catch {
+          // no-op
+        } finally {
+          if (appRef.current === app) appRef.current = null
+        }
+        return
+      }
+
+      // Контейнер под кристаллы
+      const layer = new Container()
+      app.stage.addChild(layer)
+
+      const padding = 32
+      const rnd = (min: number, max: number) => Math.random() * (max - min) + min
+
+      for (let i = 0; i < total; i++) {
+        const spr = new Sprite({ texture: tex })
+        spr.anchor.set(0.5)
+        spr.scale.set(0.9 + Math.random() * 0.4)
+        spr.x = rnd(padding, width - padding)
+        spr.y = rnd(padding, height - padding)
+        spr.eventMode = 'static'
+        spr.cursor = 'pointer'
+        spr.on('pointertap', () => {
+          if (spr.destroyed) return
+          layer.removeChild(spr)
+          spr.destroy()
+          onCrystalPick()
+        })
+        layer.addChild(spr)
+      }
+    })()
+
+    return () => {
+      disposed = true
+      const current = appRef.current
+      if (current) {
+        try {
+          current.destroy(true)
+        } catch {
+          // no-op
+        } finally {
+          if (appRef.current === current) appRef.current = null
+        }
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [total])
+
+  const handleRestart = () => {
+    reset()
+    // Для полного визуального рестарта можно сменить режим туда-сюда.
+  }
+
+  return (
+    <>
+      <PageHeader title="Игра: Сбор кристаллов" subtitle="Кликайте по кристаллам, чтобы собрать их все." />
+
+      <Space style={{ marginBottom: 16 }} wrap>
+        <Segmented<Mode>
+          options={[
+            { label: 'Легко (10)', value: 'easy' },
+            { label: 'Норма (15)', value: 'normal' },
+            { label: 'Сложно (20)', value: 'hard' }
+          ]}
+          value={mode}
+          onChange={(val) => {
+            reset()
+            setMode(val)
+          }}
+        />
+        <Button onClick={handleRestart}>Начать заново</Button>
+      </Space>
+
+      <div className="pixi-wrap" ref={wrapRef} />
+
+      <Descriptions bordered size="small" column={{ xs: 1, sm: 3 }} style={{ marginTop: 16, background: '#fff' }}>
+        <Descriptions.Item label="Собрано">{collected}</Descriptions.Item>
+        <Descriptions.Item label="Осталось">{remaining}</Descriptions.Item>
+        <Descriptions.Item label="Цели">
+          {thresholds.bronze}/{thresholds.silver}/{thresholds.gold}
+        </Descriptions.Item>
+        <Descriptions.Item label="Текущая награда" span={3}>
+          <Typography.Text strong>
+            {award === 'none'
+              ? '—'
+              : award === 'bronze'
+              ? 'Бронзовая'
+              : award === 'silver'
+              ? 'Серебряная'
+              : 'Золотая'}
+          </Typography.Text>
+        </Descriptions.Item>
+      </Descriptions>
+    </>
+  )
+}
+
+
+/src/pages/Home.tsx
+import { Card, Col, Row, Typography } from 'antd'
+import PageHeader from '../components/ui/PageHeader'
+
+export default function Home() {
+    return (
+        <>
+            <PageHeader
+                title="Главная"
+                subtitle="Это учебный каркас приложения: навигация, галерея, UI-демо, карточки, формы и мини-игра."
+            />
+
+            <Row gutter={[16, 16]}>
+                <Col xs={24} md={12}>
+                    <Card title="О проекте">
+                        <Typography.Paragraph>
+                            Здесь демонстрируются ключевые элементы интерфейса: кнопки Ant Design, сетки карточек,
+                            формы с валидацией, а также мини-игра «Сбор кристаллов» на PixiJS.
+                        </Typography.Paragraph>
+                        <Typography.Paragraph>
+                            Архитектурно мы разделяем UI-компоненты и бизнес-логику (например, логика игры вынесена
+                            в кастомный React-хук).
+                        </Typography.Paragraph>
+                    </Card>
+                </Col>
+                <Col xs={24} md={12}>
+                    <Card title="Что попробовать">
+                        <ul style={{ paddingLeft: 18, margin: 0 }}>
+                            <li>Зайдите в «Галерея» и переключайте вкладки «Фото/Видео».</li>
+                            <li>Откройте «UI-компоненты» — там примеры кнопок со статусами.</li>
+                            <li>Посмотрите «Карточки» — адаптивная сетка с действиями.</li>
+                            <li>На странице «Формы» — валидация и всплывающие сообщения.</li>
+                            <li>Запустите «Игра» — собирайте кристаллы и получайте награды.</li>
+                        </ul>
+                    </Card>
+                </Col>
+            </Row>
+        </>
+    )
+}
+
+
+/src/pages/Lore.css
+/* /src/pages/Lore.css */
+.lore-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+  color: #ffffff;
+
+  /* Градиент фона страницы (по твоему скрину) */
+  background: linear-gradient(135deg, #0d112c 0%, #1d2467 100%);
+
+  /* опционально — приятнее на больших экранах */
+  background-attachment: fixed;
+}
+
+
+/src/pages/Lore.tsx
+import HeroTypeSwitcher from '../components/ui/HeroTypeSwitcher/HeroTypeSwitcher'
+import WorldHistory from '../components/ui/WorldHistory/WorldHistory'
+import Factions from '../components/ui/Factions/Factions'
+import ItemsCarousel, { type GameItem } from '../components/ui/ItemCarousel/ItemCarousel';
+
+import './Lore.css'
+import item1 from '../assets/water.png'
+import item2 from '../assets/Subtract.png'
+import item3 from '../assets/photo2.svg'
+
+import mapA from '../assets/map.png'
+import mapB from '../assets/map.png'
+import mapC from '../assets/map.png'
+import LocationMap, { type LocationCard } from '../components/ui/LocationMap/LocationMap';
+
+export default function Lore() {
+    const items: GameItem[] = [
+    { id: 'crystal_key', title: 'кристаллический ключ', image: item1 },
+    { id: 'toolkit', title: 'набор инженера', image: item2 },
+    { id: 'data_chip', title: 'датачип', image: item3 },
+  ]
+
+  const cards: LocationCard[] = [
+    {
+      id: 'arcane_warehouse',
+      image: mapA,
+      locationTitle: 'Склад ARCANE LNC',
+      locationSubtitle: 'Склад ARCANE LNC',
+      description: 'Стратегически важный объект\nв мире игры Arcane Crystals.',
+      size: 'main',
+    },
+    {
+      id: 'blue_sector',
+      image: mapB,
+      locationTitle: 'Сектор BLUE',
+      locationSubtitle: 'Территория BLUE SECTOR',
+      description: 'Район технических тоннелей.\nМного дронов и ловушек.',
+      size: 'side',
+    },
+    {
+      id: 'red_front',
+      image: mapC,
+      locationTitle: 'Красный фронт',
+      locationSubtitle: 'Территория RED FRONT',
+      description: 'Разлом и горячие зоны.\nОпасные рейды и редкие ресурсы.',
+      size: 'side',
+    },
+  ]
+  return (
+    <div className="lore-page">
+      <HeroTypeSwitcher />
+      <WorldHistory />
+       <LocationMap cards={cards} />
+      <ItemsCarousel items={items} />
+      <Factions />
+    </div>
+  )
+}
+
+/src/pages/RouteError.tsx
+import { Link, isRouteErrorResponse, useRouteError } from 'react-router-dom'
+import { Result, Button } from 'antd'
+
+export default function RouteError() {
+  const error = useRouteError()
+  const isResp = isRouteErrorResponse(error)
+
+  const title = isResp ? `${error.status} ${error.statusText}` : 'Что-то пошло не так'
+  const subTitle =
+    isResp ? (error.data as any)?.message ?? 'Route error' : error instanceof Error ? error.message : ''
+
+  return (
+    <Result
+      status="error"
+      title={title}
+      subTitle={subTitle}
+      extra={
+        <Button type="primary">
+          <Link to="/">На главную</Link>
+        </Button>
+      }
+    />
+  )
+}
+
+
+/src/pages/UIShowcase.tsx
+import { useState } from 'react'
+import { Button, Space, Divider, Typography } from 'antd'
+import { LoadingOutlined, ThunderboltOutlined, SmileOutlined, LinkOutlined } from '@ant-design/icons'
+import PageHeader from '../components/ui/PageHeader'
+
+export default function UIShowcase() {
+    const [loading, setLoading] = useState(false)
+
+    return (
+        <>
+            <PageHeader title="UI-компоненты" subtitle="Примеры базовых кнопок Ant Design." />
+
+            <Typography.Title level={4}>Типы кнопок</Typography.Title>
+            <Space wrap>
+                <Button type="primary" icon={<ThunderboltOutlined />}>
+                    Primary
+                </Button>
+                <Button>Default</Button>
+                <Button type="dashed">Dashed</Button>
+                <Button type="text">Text</Button>
+                <Button type="link" icon={<LinkOutlined />}>
+                    Link
+                </Button>
+                <Button type="primary" danger icon={<SmileOutlined />}>
+                    Danger
+                </Button>
+            </Space>
+
+            <Divider />
+
+            <Typography.Title level={4}>Состояния</Typography.Title>
+            <Space wrap>
+                <Button disabled>Disabled</Button>
+                <Button
+                    type="primary"
+                    icon={<LoadingOutlined />}
+                    loading={loading}
+                    onClick={() => {
+                        setLoading(true)
+                        setTimeout(() => setLoading(false), 1500)
+                    }}
+                >
+                    Loading 1.5s
+                </Button>
+            </Space>
+        </>
+    )
+}
+
+
+/src/routes.tsx
+import { createBrowserRouter } from 'react-router-dom'
+import App from './App'
+import Home from './pages/Home'
+import Gallery from './pages/Gallery'
+import UIShowcase from './pages/UIShowcase'
+import Cards from './pages/Cards'
+import Forms from './pages/Forms'
+import Game from './pages/Game'
+import RouteError from './pages/RouteError'
+import Lore from './pages/Lore'
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <App />,
+        errorElement: <RouteError />,
+        children: [
+            { index: true, element: <Home /> },
+            { path: 'gallery', element: <Gallery /> },
+            { path: 'ui', element: <UIShowcase /> },
+            { path: 'cards', element: <Cards /> },
+            { path: 'forms', element: <Forms /> },
+            { path: 'game', element: <Game /> },
+            {path: 'lore', element: <Lore/>}
+        ]
+    }
+])
+
+export default router
+
+
+/src/types/assets.d.ts
+declare module '*.svg' {
+    const src: string
+    export default src
+}
+declare module '*.png' {
+    const src: string
+    export default src
+}
+declare module '*.jpg' {
+    const src: string
+    export default src
+}
+declare module '*.jpeg' {
+    const src: string
+    export default src
+}
+declare module '*.mp4' {
+    const src: string
+    export default src
+}
+
+
+package.json
+{
+  "name": "finiki",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.0.2",
+    "@ant-design/v5-patch-for-react-19": "^1.0.3",
+    "antd": "^5.27.4",
+    "pixi.js": "^8.13.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react-swc": "^4.1.0",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.44.1",
+    "vite": "^7.1.7"
+  }
+}
+
+
+vite.config.ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()]
+})
+

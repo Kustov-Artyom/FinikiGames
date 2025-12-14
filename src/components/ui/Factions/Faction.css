@@ -1,0 +1,238 @@
+/* /src/components/ui/Factions/Faction.css */
+.factions-wrapper {
+  padding: 40px 24px;
+  min-height: auto;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.factions-container {
+  width: 100%;
+  max-width: 1400px; /* чуть шире, чтобы вместить 155×426 + отступ 100px */
+  margin: 0 auto;
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 32px;
+  color: #fff;
+}
+
+/* Заголовок */
+.page-title {
+  font-size: 64px !important;
+  font-weight: 800 !important;
+  color: #00f7ff !important;
+  margin: 0 0 24px 0 !important;
+  letter-spacing: 2px;
+}
+
+/* Основной layout */
+.content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Карточки */
+.factions-cards-row {
+  display: flex;
+  gap: 20px; /* отступ между карточками */
+  overflow-x: auto;
+  padding: 4px 0;
+  align-items: flex-start;
+  scrollbar-width: thin;
+  scrollbar-color: #00f7ff transparent;
+}
+
+
+
+
+
+.faction-card {
+  flex: 0 0 auto;
+  cursor: pointer;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+
+.faction-image {
+  object-fit: cover;
+  border-radius: 0;
+  width: 155px;
+  height: 426px;
+}
+
+/* Информация о фракции */
+.faction-info-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  border-radius: 16px;
+  max-width: auto;
+}
+
+.faction-name {
+  font-size: 48px !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  margin: 0 0 16px 0 !important;
+  line-height: 1.1;
+}
+
+.faction-description {
+  font-size: 20px !important;
+  color: #cccccc !important;
+  line-height: 1.5 !important;
+  margin: 0 0 24px 0 !important;
+  max-width: 255px;
+  word-wrap: break-word;
+}
+
+.read-button {
+  background-color: transparent;
+  border:1px solid #00e0e6;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 0 28px;
+  height: 44px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.read-button:hover {
+  background-color: #00e0e6;
+  border-color: #00e0e6;
+}
+
+/* Десктоп: карточки слева, панель — справа с отступом 100px */
+@media (min-width: 768px) {
+  .content-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 100px; /* ←←← ключевой отступ */
+  }
+
+  .faction-info-panel {
+    margin-top: 0;
+  }
+}
+
+/* Адаптивность модального окна */
+/* === Базовые стили остаются как есть === */
+
+/* Уменьшаем размеры на малых экранах */
+@media (max-width: 576px) {
+  .page-title {
+    font-size: 36px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .faction-name {
+    font-size: 36px !important; /* вместо 48px */
+  }
+
+  .faction-description {
+    font-size: 18px !important; /* вместо 20px */
+    max-width: 280px !important;
+  }
+
+  /* Уменьшаем карточку под экран */
+  .faction-image {
+    width: 130px !important;
+    height: 356px !important;
+  }
+
+  .faction-info-panel {
+    padding: 16px !important;
+    max-width: 280px !important;
+  }
+
+  .read-button {
+    height: 40px !important;
+    font-size: 15px !important;
+    padding: 0 20px !important;
+  }
+
+  .factions-container {
+    padding: 20px !important;
+  }
+}
+
+/* Очень узкие экраны: 320px – 414px */
+@media (max-width: 414px) {
+  .faction-image {
+    width: 120px !important;
+    height: 330px !important;
+  }
+
+  .faction-name {
+    font-size: 32px !important;
+  }
+
+  .faction-description {
+    font-size: 17px !important;
+    max-width: 250px !important;
+  }
+
+  .faction-info-panel {
+    max-width: 250px !important;
+    padding: 14px !important;
+  }
+
+  .page-title {
+    font-size: 32px !important;
+  }
+
+  /* Центрируем информацию на очень малых экранах */
+  .faction-info-panel {
+    align-items: center;
+    text-align: center;
+  }
+
+  .faction-description {
+    text-align: center !important;
+  }
+}
+
+/* Особый случай: 320px (iPhone SE, старые Android) */
+@media (max-width: 320px) {
+  .faction-image {
+    width: 110px !important;
+    height: 300px !important;
+  }
+
+  .faction-name {
+    font-size: 28px !important;
+  }
+
+  .faction-description {
+    font-size: 16px !important;
+    max-width: 220px !important;
+  }
+
+  .faction-info-panel {
+    max-width: 220px !important;
+    padding: 12px !important;
+  }
+
+  .page-title {
+    font-size: 28px !important;
+  }
+
+  .factions-container {
+    padding: 15px !important;
+  }
+
+  .read-button {
+    height: 38px !important;
+    font-size: 14px !important;
+    padding: 0 18px !important;
+  }
+}

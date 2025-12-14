@@ -1,0 +1,13 @@
+/* /src/pages/Lore.css */
+.lore-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+  color: #ffffff;
+
+  /* Градиент фона страницы (по твоему скрину) */
+  background: linear-gradient(135deg, #0d112c 0%, #1d2467 100%);
+
+  /* опционально — приятнее на больших экранах */
+  background-attachment: fixed;
+}

@@ -1,0 +1,212 @@
+.items-carousel-wrap {
+  width: 100%;
+  height: 871px;
+  max-height: 871px;
+  padding: 56px 24px 40px;
+  color: #fff;
+  overflow: hidden;
+
+  background: radial-gradient(80% 80% at 50% 45%, rgba(92, 63, 255, 0.25) 0%, rgba(0, 0, 0, 0) 55%),
+    linear-gradient(135deg, #0d112c 0%, #1d2467 100%);
+}
+
+.items-carousel-inner {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.items-carousel-title {
+  margin: 0 0 26px 0 !important;
+  text-align: left;
+  font-weight: 900 !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #bff6ff !important;
+  font-size: clamp(32px, 5.4vw, 64px) !important;
+}
+
+.items-carousel-stage {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items-carousel-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 0;
+}
+
+/* Фиксируем высоту карусели (иначе slick может схлопнуться) */
+.items-carousel-shell {
+  height: var(--carousel-h);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* slick должен наследовать высоту shell */
+.items-carousel {
+  width: 100%;
+  height: 100%;
+}
+
+/* ВАЖНО: не даём react-slick делать странные вычисления высоты */
+.items-carousel .slick-slider,
+.items-carousel .slick-list,
+.items-carousel .slick-track {
+  height: 100% !important;
+}
+
+.items-carousel .slick-track {
+  display: flex !important;
+  align-items: center;
+}
+
+.items-carousel .slick-slide {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.items-carousel .slick-slide > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items-carousel-slide {
+  height: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+/* РАМКА */
+.items-carousel-frame {
+  --frame-w: 360px;
+  --frame-h: 460px;
+
+  position: relative;
+  width: var(--frame-w);
+  height: var(--frame-h);
+  user-select: none;
+  flex: 0 0 auto;
+
+  /* чтобы не было "пустого мерцания" */
+  background: rgba(6, 10, 30, 0.18);
+}
+
+/* лёгкий фейд только при замене src */
+.items-carousel-frame.is-loading .items-carousel-img {
+  opacity: 0.92;
+}
+
+.items-carousel-frame.is-loaded .items-carousel-img {
+  opacity: 1;
+}
+
+.items-carousel-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(18% 0%, 100% 0%, 100% 82%, 82% 100%, 0% 100%, 0% 18%);
+  border: 2px solid rgba(140, 246, 255, 0.95);
+  box-shadow: 0 0 18px rgba(140, 246, 255, 0.22);
+  pointer-events: none;
+}
+
+.items-carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* ключ: не даём браузеру дергать layout */
+  transform: translateZ(0);
+
+  clip-path: polygon(18% 0%, 100% 0%, 100% 82%, 82% 100%, 0% 100%, 0% 18%);
+  transition: opacity 120ms linear;
+}
+
+.items-carousel-caption {
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* стрелки */
+
+ .items-carousel-arrow {
+  z-index: 50 !important;
+  pointer-events: auto !important;
+}
+
+.items-carousel-shell {
+  position: relative;
+  z-index: 1;
+}
+
+
+.items-carousel-arrow-left {
+  left: clamp(12px, 6vw, 160px);
+}
+
+.items-carousel-arrow-right {
+  right: clamp(12px, 6vw, 160px);
+}
+
+.items-carousel-arrow-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid rgba(140, 246, 255, 0.9);
+  color: rgba(140, 246, 255, 0.95);
+  background: rgba(6, 10, 30, 0.25);
+  box-shadow: 0 0 18px rgba(140, 246, 255, 0.18);
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.items-carousel-arrow:hover .items-carousel-arrow-circle {
+  transform: scale(1.05);
+  background: rgba(6, 10, 30, 0.42);
+  box-shadow: 0 0 24px rgba(140, 246, 255, 0.26);
+}
+
+.items-carousel-empty {
+  width: 100%;
+  text-align: center;
+  opacity: 0.8;
+  padding: 28px 0;
+}
+
+@media (max-width: 576px) {
+  .items-carousel-arrow-left {
+    left: 10px;
+  }
+  .items-carousel-arrow-right {
+    right: 10px;
+  }
+  .items-carousel-arrow-circle {
+    width: 42px;
+    height: 42px;
+  }
+}

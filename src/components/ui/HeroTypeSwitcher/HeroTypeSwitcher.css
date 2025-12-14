@@ -1,0 +1,79 @@
+.page-wrapper {
+  background: transparent;
+  min-height: auto;
+  width: 100%;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+/* Убираем ВСЕ отступы у Tabs */
+.page-wrapper .ant-tabs {
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper .ant-tabs-nav {
+  background: transparent !important;
+  margin: 0;
+  padding: 0 20px; /* отступы для центровки табов */
+  position: relative;
+}
+
+.page-wrapper .ant-tabs-nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  border-bottom: 2px solid #36818f;
+}
+
+.page-wrapper .ant-tabs-content-holder {
+  background: transparent !important;
+  padding: 0;
+}
+
+.page-wrapper .ant-tabs-content {
+  padding: 0; /* ← ключевой отступ, который часто остаётся */
+}
+
+/* Стили текста и кнопок — оставляем */
+.page-wrapper .ant-tabs-tab {
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
+  gap: 80px;
+  justify-content: space-between;
+}
+
+.page-wrapper .ant-tabs-tab-active {
+  color: #4dc7ff;
+  border-bottom: 2px solid #4dc7ff;
+}
+
+.page-wrapper .ant-tabs-tab:hover {
+  color: #6deaff;
+}
+
+.page-wrapper .ant-typography {
+  color: #ffffff;
+}
+
+.page-wrapper .ant-btn {
+  background: transparent;
+  border: 1px solid #4dc7ff;
+  color: #4dc7ff;
+  font-weight: bold;
+  padding: 8px 16px;
+}
+
+.page-wrapper .ant-btn:hover {
+  background: rgba(77, 199, 255, 0.1);
+  border-color: #6deaff;
+  color: #6deaff;
+}

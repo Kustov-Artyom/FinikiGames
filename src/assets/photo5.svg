@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="lg5" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7971e"/>
+      <stop offset="1" stop-color="#ffd200"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#lg5)"/>
+  <rect x="480" y="150" width="240" height="180" rx="16" fill="rgba(255,255,255,0.5)"/>
+  <text x="40" y="80" font-size="48" fill="#fff" font-family="Arial, Helvetica">Фото 5</text>
+</svg>
