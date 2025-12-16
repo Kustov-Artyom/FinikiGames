@@ -7,6 +7,7 @@ import Cards from './pages/Cards'
 import Forms from './pages/Forms'
 import Game from './pages/Game'
 import RouteError from './pages/RouteError'
+import Contacts from './pages/Contacts'
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
             { path: 'ui', element: <UIShowcase /> },
             { path: 'cards', element: <Cards /> },
             { path: 'forms', element: <Forms /> },
-            { path: 'game', element: <Game /> }
+            { path: 'game', element: <Game /> },
+            { path: 'contacts', element: <Contacts /> }
         ]
     }
 ])
