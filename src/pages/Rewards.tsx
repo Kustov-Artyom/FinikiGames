@@ -1,4 +1,5 @@
 import CrystalHuntBanner from "../components/ui/CrystalHuntBanner/CrystalHuntBanner";
+import InviteFriendBlock from "../components/ui/InviteFriendBlock/InviteFriendBlock";
 import PromoCodeBanner from "../components/ui/PromoCodeBanner/PromoCodeBanner";
 import PromoCodeList, { PromoCodeItem } from "../components/ui/PromoCodeList/PromoCodeList";
 
@@ -14,5 +15,6 @@ export default function Rewards() {
     return <>
        <PromoCodeList items={promoCodes} />
        <CrystalHuntBanner/>
+       <InviteFriendBlock/>
     </>
 }

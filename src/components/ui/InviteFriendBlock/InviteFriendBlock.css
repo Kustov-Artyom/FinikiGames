@@ -1,0 +1,114 @@
+/* invite-friend-block.css */
+
+.invite-block-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: url('https://via.placeholder.com/1200x600/1a1a2e/ffffff?text=Background') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+}
+
+.invite-block-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.invite-content {
+  position: relative;
+  z-index: 2;
+  max-width: 963px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bottom-content{
+    margin-top: 6em;
+}
+.invite-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #00f3ff;
+  text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.invite-subtitle {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.invite-instructions {
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 15px;
+}
+
+.invite-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.invite-form .ant-input {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(0, 0, 0, 0.5) !important;
+  border: 2px solid #00f3ff !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+}
+
+.invite-form .ant-input:hover,
+.invite-form .ant-input:focus,
+.invite-form .ant-input.ant-input-focused {
+  border-color: #00d9ff !important;
+  box-shadow: 0 0 8px rgba(0, 243, 255, 0.5) !important;
+}
+
+.invite-form .ant-input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.invite-form .ant-btn {
+  padding: 12px 25px !important;
+  background: linear-gradient(90deg, #00f3ff, #00d9ff) !important;
+  color: #000 !important;
+  font-weight: bold !important;
+  border: none !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.invite-form .ant-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 243, 255, 0.4) !important;
+}
+
+.invite-form .ant-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .invite-form {
+    flex-direction: column;
+  }
+  .invite-form .ant-input {
+    width: 100%;
+  }
+}
