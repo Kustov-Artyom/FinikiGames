@@ -15,23 +15,22 @@ type Props = {
 }
 
 export default function PromoCodeList({ items, className }: Props) {
-  const safeItems = Array.isArray(items) ? items : []
+  const safeItems = Array.isArray(items) ? items : [];
 
-  if (safeItems.length === 0) {
-    return (
-      <div className={`promo-list ${className ?? ''}`}>
-        <Empty description="Промокодов нет" />
-      </div>
-    )
-  }
+ 
 
   return (
     <div className={`promo-list ${className ?? ''}`}>
-      <Space direction="vertical" size={16} className="promo-list__stack">
-        {safeItems.map((it) => (
-          <PromoCodeBanner key={it.id} date={it.date} time={it.time} />
-        ))}
-      </Space>
+      <h2 className="promo-list__title">ПРОМОКОДЫ</h2>
+      {safeItems.length === 0 ? (
+        <Empty description="Промокодов нет" />
+      ) : (
+        <Space direction="vertical" size={16} className="promo-list__stack">
+          {safeItems.map((it) => (
+            <PromoCodeBanner key={it.id} date={it.date} time={it.time} />
+          ))}
+        </Space>
+      )}
     </div>
   )
 }

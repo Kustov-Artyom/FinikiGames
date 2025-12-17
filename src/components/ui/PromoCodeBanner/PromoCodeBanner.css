@@ -1,7 +1,7 @@
 .promo-banner {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .promo-banner__inner {
@@ -9,9 +9,9 @@
   height: 123px;
   padding: 18px 22px;
 
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 
   background: linear-gradient(135deg, #070b1f 0%, #0b102a 45%, #070b1f 100%);
   border: 2px solid rgba(140, 246, 255, 0.85);
@@ -27,34 +27,36 @@
   inset: -2px;
   pointer-events: none;
   background: radial-gradient(65% 140% at 50% 50%, rgba(92, 63, 255, 0.18) 0%, rgba(0, 0, 0, 0) 60%);
+  z-index: 0;
 }
 
-.promo-banner__title{
-    margin-left: 74px;
-  justify-self: start;
+.promo-banner__content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.promo-banner__title {
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-
   color: #7a2cff;
   text-shadow: 0 0 10px rgba(122, 44, 255, 0.35);
-
   font-size: 20px;
   line-height: 1;
-  z-index: 1;
+  white-space: nowrap;
 }
 
 .promo-banner__meta {
-  justify-self: center;
   display: inline-flex;
   align-items: center;
   gap: 12px;
-
   color: rgba(255, 255, 255, 0.92);
   font-size: 20px;
-  z-index: 1;
-
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  white-space: nowrap;
 }
 
 .promo-banner__metaLabel {
@@ -66,20 +68,17 @@
 }
 
 .promo-banner__btn {
-  justify-self: end;
   height: 52px;
   padding: 0 22px;
-
   border-radius: 0;
   border: 2px solid rgba(140, 246, 255, 0.9) !important;
   background: transparent !important;
-
   color: #ffffff !important;
   font-weight: 700;
   font-size: 22px;
   letter-spacing: 0.5px;
-
   z-index: 2;
+  white-space: nowrap;
 }
 
 .promo-banner__btn:hover {
@@ -87,32 +86,104 @@
   box-shadow: 0 0 18px rgba(140, 246, 255, 0.2);
 }
 
-/* === Mobile: 343x50 === */
-@media (max-width: 480px) {
+/* ======================================= */
+/*         Планшеты: 768px – 1024px        */
+/* ======================================= */
+@media (max-width: 1024px) and (min-width: 768px) {
   .promo-banner__inner {
-    width: 343px;
-    height: 50px;
-    padding: 8px 10px;
-    grid-template-columns: auto 1fr auto;
+    height: 100px;
+    padding: 14px 20px;
+  }
+
+  .promo-banner__title {
+    font-size: 18px;
+    letter-spacing: 0.8px;
+  }
+
+  .promo-banner__meta {
+    font-size: 18px;
+    gap: 10px;
+  }
+
+  .promo-banner__btn {
+    height: 48px;
+    font-size: 20px;
+    padding: 0 20px;
+  }
+}
+
+/* ======================================= */
+/*   Малые планшеты / большие телефоны:   */
+/*         481px – 767px                  */
+/* ======================================= */
+@media (max-width: 767px) and (min-width: 481px) {
+  .promo-banner__inner {
+    height: 90px;
+    padding: 12px 18px;
+    gap: 14px;
+  }
+
+  .promo-banner__title {
+    font-size: 16px;
+    letter-spacing: 0.6px;
+  }
+
+  .promo-banner__meta {
+    font-size: 16px;
     gap: 8px;
+  }
+
+  .promo-banner__btn {
+    height: 44px;
+    font-size: 18px;
+    padding: 0 18px;
+  }
+
+  /* Оставляем всё в одну строку, но компактнее */
+  .promo-banner__content {
+    gap: 10px;
+  }
+}
+
+/* ======================================= */
+/*         Мобильные: ≤ 480px              */
+/* ======================================= */
+@media (max-width: 580px) {
+  .promo-banner__inner {
+    height: 64px;
+    padding: 8px 12px;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .promo-banner__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    max-width: calc(100% - 110px); /* оставляем место для кнопки */
   }
 
   .promo-banner__title {
     font-size: 14px;
     letter-spacing: 0.5px;
+    line-height: 1.2;
+    white-space: normal;
+    word-break: break-all;
   }
 
   .promo-banner__meta {
-    justify-self: center;
     gap: 6px;
     font-size: 12px;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-all;
   }
 
   .promo-banner__btn {
-    height: 34px;
-    padding: 0 10px;
-    font-size: 12px;
-    border-width: 1.5px !important;
+    height: 48px;
+    padding: 0 14px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    min-width: 100px;
   }
 }

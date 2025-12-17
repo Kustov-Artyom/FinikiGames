@@ -11,6 +11,6 @@ export default function Rewards() {
   ]
 
     return <>
-        return <PromoCodeList items={promoCodes} />
+       <PromoCodeList items={promoCodes} />
     </>
 }
