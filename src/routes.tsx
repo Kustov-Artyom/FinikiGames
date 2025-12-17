@@ -9,6 +9,7 @@ import Game from './pages/Game'
 import RouteError from './pages/RouteError'
 import Login from './pages/Login'
 import Registration from './pages/Registration'
+import Profile from './pages/profile'
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,8 @@ const router = createBrowserRouter([
             { path: 'forms', element: <Forms /> },
             { path: 'game', element: <Game /> },
             { path: 'login', element: <Login /> },
-            { path: 'register', element: <Registration /> }
+            { path: 'register', element: <Registration /> },
+            { path: 'profile', element: <Profile /> }
         ]
     }
 ])

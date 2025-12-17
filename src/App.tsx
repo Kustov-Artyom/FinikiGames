@@ -12,7 +12,8 @@ const navItems = [
   { key: '/forms', label: <NavLink to="/forms">Формы</NavLink> },
   { key: '/game', label: <NavLink to="/game">Игра</NavLink> },
   { key: '/login', label: <NavLink to="/login">Вход</NavLink> },
-  { key: '/register', label: <NavLink to="/register">Регистрация</NavLink> }
+  { key: '/register', label: <NavLink to="/register">Регистрация</NavLink> },
+  { key: '/profile', label: <NavLink to="/profile">Профиль</NavLink> }
 ]
 
 export default function App() {
