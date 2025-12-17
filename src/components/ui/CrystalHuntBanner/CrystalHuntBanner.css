@@ -1,0 +1,148 @@
+.crystal-hunt-banner {
+max-width: 1281px;
+  width: 100%;
+  
+  background: #0F072A;
+  padding: 40px 20px;
+  display: flex;
+  gap: 78px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #0F072A 0%, #150B3D 50%, #0F072A 100%);
+}
+
+@media (max-width: 768px) {
+  .crystal-hunt-banner {
+    flex-direction: column;
+    padding: 30px 16px;
+    gap: 24px;
+  }
+}
+
+.crystal-hunt-banner__content {
+  flex: 1;
+  max-width: 723px;
+}
+
+.crystal-hunt-banner__title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #5FF5FC;
+  text-shadow: 0 0 8px rgba(95, 245, 252, 0.5);
+  letter-spacing: 1px;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+@media (max-width: 1024px) {
+  .crystal-hunt-banner__title {
+    font-size: 32px;
+  }
+}
+
+/* Малые планшеты / большие телефоны */
+@media (max-width: 768px) {
+  .crystal-hunt-banner__title {
+    font-size: 28px;
+  }
+}
+
+/* Смартфоны (включая 375px) */
+@media (max-width: 480px) {
+  .crystal-hunt-banner__title {
+    font-size: 24px;
+    text-align: center;
+    /* При необходимости можно уменьшить тень или letter-spacing */
+    letter-spacing: 0.8px;
+  }
+}
+
+/* Очень узкие экраны */
+@media (max-width: 320px) {
+  .crystal-hunt-banner__title {
+    font-size: 20px;
+  }
+}
+.crystal-hunt-banner__description {
+  color: #E0E0E0;
+  font-size: 20px;
+  max-width: 723px;
+  width: 100%;
+  line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0; /* убирает все внешние отступы у самого блока */
+}
+
+.crystal-hunt-banner__description p {
+  margin: 0 0 16px 0;
+}
+
+.crystal-hunt-banner__description p:last-child {
+  margin-bottom: 0;
+}
+
+/* === Обёртка изображения === */
+.crystal-hunt-banner__image-wrapper {
+  position: relative;
+  width: 480px;
+  height: 748px;
+  overflow: hidden;
+}
+
+/* === Изображение === */
+.crystal-hunt-banner__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* === Скошенная неоновая рамка === */
+.crystal-hunt-banner__image-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  z-index: 1;
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #5FF5FC, #00F0FF) 1;
+  clip-path: polygon(
+    10% 0,
+    100% 0,
+    100% 90%,
+    100% 100%,
+    10% 100%,
+    0 100%,
+    0 10%
+  );
+}
+
+/* === Лёгкий внутренний градиент для объёма (опционально) === */
+.crystal-hunt-banner__image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(45deg, rgba(95, 245, 252, 0.08), transparent);
+  clip-path: polygon( 0px 193px, 85px 0px, 480px 0px, 480px 574px, 379px 748px, 0px 748px, 0px 698px, 0px 50px);
+  z-index: 0;
+}
+
+/* === Адаптив для мобильных === */
+@media (max-width: 768px) {
+  .crystal-hunt-banner__image-wrapper {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 480 / 748; /* сохраняем пропорции */
+  }
+
+  .crystal-hunt-banner__image {
+    border-radius: 0; /* сбрасываем, если был */
+  }
+
+  .crystal-hunt-banner__image-wrapper::before,
+  .crystal-hunt-banner__image-wrapper::after {
+    inset: -1px;
+    border-width: 1px;
+  }
+}
