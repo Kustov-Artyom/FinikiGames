@@ -8,7 +8,7 @@ import Forms from './pages/Forms'
 import Game from './pages/Game'
 import RouteError from './pages/RouteError'
 import Lore from './pages/Lore'
-
+import Rewards from './pages/Rewards'
 const router = createBrowserRouter([
     {
         path: '/',
@@ -21,7 +21,8 @@ const router = createBrowserRouter([
             { path: 'cards', element: <Cards /> },
             { path: 'forms', element: <Forms /> },
             { path: 'game', element: <Game /> },
-            {path: 'lore', element: <Lore/>}
+            {path: 'lore', element: <Lore/>},
+            {path:'rewards', element:<Rewards/>}
         ]
     }
 ])
