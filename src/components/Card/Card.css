@@ -1,0 +1,67 @@
+.card {
+    border: 1px solid rgba(95, 245, 252, 0.55);
+    background: rgba(10, 18, 42, 0.22);
+    padding: 14px;
+    border-radius: 12px;
+}
+
+.card__image {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(95, 245, 252, 0.18);
+}
+
+.card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card__date {
+    font-size: 12px;
+    color: rgba(184, 199, 255, 0.75);
+}
+
+.card__title {
+    font-family: "TerminatorGen";
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+}
+
+.card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 2px;
+}
+
+.card__tag {
+    font-size: 12px;
+    color: rgba(233, 254, 255, 0.9);
+    border: 1px solid rgba(95, 245, 252, 0.35);
+    background: rgba(95, 245, 252, 0.08);
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+/* Mobile: как на скрине — карточки текстом, без картинки */
+@media (max-width: 768px) {
+    .card {
+        padding: 14px;
+    }
+
+    .card__image {
+        display: none;
+    }
+
+    .card__title {
+        font-size: 14px;
+    }
+
+    .card__date {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,160 @@
+.banner {
+  height: 100vh;
+  background-image: url("../../assets/img/Обновление.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: "TerminatorGen";
+  font-size: 96px;
+  text-align: center;
+  line-height: 60%;
+}
+
+.sectionNewHero {
+  padding: 120px 80px;
+}
+.swiper {
+  margin: 0 auto;
+  width: 1058px;
+  border: 2px solid #1fa2ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiperBlockMedia {
+  text-align: end;
+
+  position: relative;
+}
+
+.swiperDecor {
+  position: absolute;
+  top: 30px;
+  left: 100px;
+}
+
+.swiperDecorContainer {
+  position: relative;
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background-color: #21e5e4;
+  width: 37px;
+  height: 37px;
+}
+
+.swiperDecor:nth-child(1) {
+  left: 131px;
+  top: 27px;
+}
+
+.swiperDecor:nth-child(2) {
+  left: 321px;
+  top: 74px;
+}
+
+.swiperDecor:nth-child(3) {
+  left: 173px;
+  top: 191px;
+}
+
+.swiperTextContent {
+  padding: 22px 56px;
+}
+
+.swiperTextContentTitle {
+  font-size: 45px;
+  font-family: "TerminatorGen";
+}
+
+.swiperTextContentText {
+  font-size: 16px;
+}
+
+.sectionNewUpdateContainer {
+  text-align: center;
+  padding: 0px 53px;
+}
+
+.sectionNewUpdate {
+  padding: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftBlock {
+  width: 410px;
+  text-align: left;
+}
+
+.leftBlockTitle {
+  color: #5ff5fc;
+  font-size: 50px;
+  font-family: "TerminatorGen";
+}
+.leftBlockText {
+  font-size: 16px;
+}
+.rightBlock {
+  width: 629px;
+}
+
+.newUpdateImg {
+  border: 2px solid #5ff5fc;
+}
+
+.newsSlide {
+  display: flex;
+  justify-content: space-between;
+}
+.blockTitle {
+  font-family: "TerminatorGen";
+  font-size: 40px;
+  line-height: 60%;
+  margin-bottom: 66px;
+  text-align: center;
+  color: #5ff5fc;
+}
+
+.newsSwiper {
+  border: 1px solid #5ff5fc;
+  width: 1054px;
+  margin: 0 auto;
+}
+
+.newSliderTextContent {
+  padding: 45px 36px;
+}
+
+.newsTitle {
+  margin-bottom: 47px;
+  text-align: center;
+  font-size: 70px;
+  color: #5ff5fc;
+  font-family: "TerminatorGen";
+}
+.sectionOffer {
+  margin-top: 120px;
+}
+.offerSlide {
+  width: 625.48px;
+  height: 338.8px;
+
+  border: 1px solid #5ff5fc;
+}
