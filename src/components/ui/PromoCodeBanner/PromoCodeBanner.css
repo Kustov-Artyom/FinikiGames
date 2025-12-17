@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  max-width: 1279px;
 }
 
 .promo-banner__inner {
@@ -13,7 +14,7 @@
   align-items: center;
   justify-content: space-between;
 
-  background: linear-gradient(135deg, #070b1f 0%, #0b102a 45%, #070b1f 100%);
+  
   border: 2px solid rgba(140, 246, 255, 0.85);
   box-shadow: 0 0 18px rgba(140, 246, 255, 0.14);
 

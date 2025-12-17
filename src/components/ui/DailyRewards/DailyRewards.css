@@ -1,0 +1,118 @@
+/* daily-rewards.css */
+
+.daily-rewards-wrapper {
+  width: 100%;
+  max-width: 1375px;
+  margin: 0 auto;
+
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.daily-rewards-header {
+  text-align: center;
+  color: #00f3ff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00f3ff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.daily-rewards-grid {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding-top: 40px;
+  flex-wrap: wrap;
+  max-width: 1265px;
+  margin: 0 auto;
+}
+
+.reward-card {
+  width: 233px;
+  height: 268px;
+  border: 2px solid #00f3ff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.reward-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 243, 255, 0.3);
+}
+
+.reward-card::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.reward-number {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #00f3ff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.reward-icon {
+  width: 100px;
+  height: 100px;
+  margin: 20px 0;
+  object-fit: contain;
+}
+
+.reward-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.reward-label {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 5px;
+}
+
+@media (max-width: 1300px) {
+  .daily-rewards-wrapper {
+    width: 100%;
+    padding: 20px;
+  }
+  .daily-rewards-grid {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 768px) {
+  .daily-rewards-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .reward-card {
+    width: 200px;
+    height: auto;
+    min-height: 220px;
+  }
+}

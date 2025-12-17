@@ -1,5 +1,6 @@
 .promo-list {
   width: 100%;
+  max-width: 1279px;
   display: flex;
   flex-direction: column;
   justify-content: center;

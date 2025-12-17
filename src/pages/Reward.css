@@ -1,0 +1,23 @@
+/* src/pages/Rewards.css */
+
+.rewards-page-wrapper {
+  background: linear-gradient(135deg, #111538 0%, #1e2568 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  width: 100%;
+  background: linear-gradient(135deg, #070b1f 0%, #0b102a 45%, #070b1f 100%);
+}
+
+.rewards-page-wrapper > * {
+  width: 100%;
+  max-width: 1265px;
+  margin-bottom: 40px;
+}
+
+.rewards-page-wrapper > *:last-child {
+  margin-bottom: 0;
+}

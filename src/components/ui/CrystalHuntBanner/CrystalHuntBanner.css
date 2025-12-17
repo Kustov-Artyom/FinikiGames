@@ -2,12 +2,10 @@
 max-width: 1281px;
   width: 100%;
   
-  background: #0F072A;
   padding: 40px 20px;
   display: flex;
   gap: 78px;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #0F072A 0%, #150B3D 50%, #0F072A 100%);
 }
 
 @media (max-width: 768px) {
@@ -32,35 +30,7 @@ max-width: 1281px;
   margin: 0 0 20px 0;
   line-height: 1.2;
 }
-@media (max-width: 1024px) {
-  .crystal-hunt-banner__title {
-    font-size: 32px;
-  }
-}
 
-/* Малые планшеты / большие телефоны */
-@media (max-width: 768px) {
-  .crystal-hunt-banner__title {
-    font-size: 28px;
-  }
-}
-
-/* Смартфоны (включая 375px) */
-@media (max-width: 480px) {
-  .crystal-hunt-banner__title {
-    font-size: 24px;
-    text-align: center;
-    /* При необходимости можно уменьшить тень или letter-spacing */
-    letter-spacing: 0.8px;
-  }
-}
-
-/* Очень узкие экраны */
-@media (max-width: 320px) {
-  .crystal-hunt-banner__title {
-    font-size: 20px;
-  }
-}
 .crystal-hunt-banner__description {
   color: #E0E0E0;
   font-size: 20px;
