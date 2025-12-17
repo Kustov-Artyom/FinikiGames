@@ -1,6 +1,7 @@
 import { Row, Col, Card, Typography, Button, Space, Carousel, CarouselProps } from 'antd';
 import { useState } from 'react';
 
+
 // ====== ИМПОРТ ИЗОБРАЖЕНИЙ ======
 import mediaBanner from '../assets/media-banner.jpg';
 import videoPreview1 from '../assets/video1-preview.jpg';
@@ -32,7 +33,6 @@ const wallpapers: string[] = [];
 const gameVisuals = [gameVisual1];
 
 // ====== КОМПОНЕНТ БАННЕРА МЕДИА ======
-// ====== КОМПОНЕНТ БАННЕРА МЕДИА ======
 const MediaBanner = () => {
   return (
     <section style={{
@@ -52,8 +52,7 @@ const MediaBanner = () => {
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
-        backgroundColor: 'color #02081D',
+        height: '100%'
       }} />
 
       <div style={{ 
@@ -78,12 +77,11 @@ const MediaBanner = () => {
           gap: '20px'
         }}>
           <Typography.Title level={1} style={{ 
-            fontSize: '48px', 
-            textShadow: '0 2px 10px rgba(0,0,0,0.7)',
-            color: '#00f3ff',
+            fontSize: '64px',
+            color: '#5FF5FC',
             marginBottom: '0',
-            fontFamily: 'Arial, sans-serif',
-            fontWeight: 700,
+            fontFamily: "'Terminator Gen', 'Arial Black', sans-serif",
+            fontWeight: 400,
             letterSpacing: '3px',
             background: 'linear-gradient(to right, #00f3ff, #00ccff)',
             WebkitBackgroundClip: 'text',
@@ -110,8 +108,7 @@ const MediaBanner = () => {
               style={{ 
                 width: '100%', 
                 height: '100%',
-                objectFit: 'cover',
-                transition: 'transform 0.5s ease'
+                objectFit: 'cover'
               }} 
             />
             <div style={{
@@ -184,13 +181,13 @@ export default function MediaPage() {
   };
 
   return (
-    <div style={{ backgroundColor: '#0a0a1a', color: '#fff' }}>
+    <div style={{ backgroundColor: '#0B0D21', color: '#fff' }}>
       <MediaBanner />
 
       {/* ====== СЕКЦИЯ ВИДЕО ====== */}
       <section style={{ 
         padding: '64px 5%', 
-        backgroundColor: '#0a0a1a',
+        backgroundColor: '#0B0D21',
         position: 'relative',
         overflow: 'hidden'
       }}>
@@ -200,7 +197,6 @@ export default function MediaPage() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundImage: 'linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%)',
           backgroundSize: '20px 20px',
           zIndex: 0
         }} />
@@ -228,8 +224,7 @@ export default function MediaPage() {
                       position: 'relative',
                       borderRadius: '12px',
                       overflow: 'hidden',
-                      border: '2px solid #00f3ff',
-                      boxShadow: '0 0 25px rgba(0, 243, 255, 0.3)'
+                      border: '2px solid #00f3ff'
                     }}>
                       <img 
                         src={src} 
@@ -237,7 +232,6 @@ export default function MediaPage() {
                         style={{ 
                           width: '100%', 
                           display: 'block',
-                          transition: 'transform 0.3s ease',
                           height: '200px',
                           objectFit: 'cover'
                         }}
@@ -248,7 +242,6 @@ export default function MediaPage() {
                         left: 0, 
                         width: '100%', 
                         height: '100%',
-                        background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center'
@@ -279,7 +272,7 @@ export default function MediaPage() {
       {/* ====== СЕКЦИЯ ГАЛЕРЕЯ ====== */}
       <section style={{ 
         padding: '64px 5%', 
-        backgroundColor: '#0a0a1a',
+        backgroundColor: '#0B0D21',
         position: 'relative',
         overflow: 'hidden'
       }}>
@@ -289,8 +282,6 @@ export default function MediaPage() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundImage: 'linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%)',
-          backgroundSize: '20px 20px',
           zIndex: 0
         }} />
         
@@ -350,8 +341,8 @@ export default function MediaPage() {
                   transition: 'all 0.3s ease',
                   boxShadow: '0 5px 15px rgba(0, 0, 0, 0.3)',
                   position: 'relative',
-                  backgroundColor: 'rgba(10, 10, 26, 0.7)',
-                  backdropFilter: 'blur(5px)'
+                  backdropFilter: 'blur(5px)',
+                  WebkitBackdropFilter: 'blur(5px)'
                 }}>
                   <img 
                     src={src} 
@@ -369,7 +360,6 @@ export default function MediaPage() {
                     left: 0,
                     width: '100%',
                     padding: '12px',
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)',
                     color: 'white',
                     fontSize: '14px',
                     textAlign: 'center',
@@ -409,7 +399,7 @@ export default function MediaPage() {
       {/* ====== СЕКЦИЯ ВИЗУАЛ ИГРЫ ====== */}
       <section style={{ 
         padding: '64px 5%', 
-        backgroundColor: '#0a0a1a',
+        backgroundColor: '#0B0D21',
         marginTop: '64px',
         position: 'relative',
         overflow: 'hidden'
@@ -420,8 +410,6 @@ export default function MediaPage() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundImage: 'linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%)',
-          backgroundSize: '20px 20px',
           zIndex: 0
         }} />
         
@@ -442,8 +430,6 @@ export default function MediaPage() {
             margin: '0 auto',
             borderRadius: '16px',
             overflow: 'hidden',
-            boxShadow: '0 15px 35px rgba(0, 0, 0, 0.5)',
-            border: '1px solid #00f3ff',
             position: 'relative'
           }}>
             <Carousel {...carouselSettings}>

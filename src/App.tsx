@@ -10,8 +10,9 @@ const navItems = [
   { key: '/ui', label: <NavLink to="/ui">UI-компоненты</NavLink> },
   { key: '/cards', label: <NavLink to="/cards">Карточки</NavLink> },
   { key: '/forms', label: <NavLink to="/forms">Формы</NavLink> },
-  { key: '/contacts', label: <NavLink to="/contacts">Контакты</NavLink> },
-  { key: '/game', label: <NavLink to="/game">Игра</NavLink> }
+  { key: '/game', label: <NavLink to="/game">Игра</NavLink> },
+  { key: '/login', label: <NavLink to="/login">Вход</NavLink> },
+  { key: '/register', label: <NavLink to="/register">Регистрация</NavLink> }
 ]
 
 export default function App() {
